@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dsw="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_invite_friends"
+        style="@style/item_style_with_foreg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:drawableStart="@mipmap/yaoqinghaoyou"
+            android:drawablePadding="8dp"
+            android:text="@string/invite_friends"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_size_16" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/iv_right_jiantou"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_send_card"
+        style="@style/item_style_with_foreg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:drawableStart="@mipmap/fasongmingpian"
+            android:drawablePadding="8dp"
+            android:text="@string/send_card"
+            android:textColor="@color/text_black"
+            android:textSize="15sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/iv_right_jiantou"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_certification"
+        style="@style/item_style_with_foreg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:drawableStart="@mipmap/shimingyanzheng"
+            android:drawablePadding="8dp"
+            android:text="@string/certification"
+            android:textColor="@color/text_black"
+            android:textSize="15sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/iv_right_jiantou"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_store_order"
+        style="@style/item_style_with_foreg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:drawableStart="@mipmap/shangjiadingdan"
+            android:drawablePadding="8dp"
+            android:text="@string/store_order"
+            android:textColor="@color/text_black"
+            android:textSize="15sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/iv_right_jiantou"/>
+    </RelativeLayout>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"></Space>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_my_collect"
+            style="@style/item_style_with_foreg" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:drawableStart="@mipmap/wodeshoucang"
+                android:drawablePadding="8dp"
+                android:text="@string/my_collection"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_order"
+            style="@style/item_style_with_foreg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:drawableStart="@mipmap/wodedingdan"
+                android:drawablePadding="8dp"
+                android:text="@string/my_order"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_trace"
+            style="@style/item_style_with_foreg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:drawableStart="@mipmap/wodezuji"
+                android:drawablePadding="8dp"
+                android:text="@string/my_trace"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_carder"
+            style="@style/item_style_with_foreg"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:drawableStart="@mipmap/wodemingpian"
+                android:drawablePadding="8dp"
+                android:text="@string/my_card"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_want"
+            style="@style/item_style_with_foreg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:layout_centerVertical="true"
+                android:drawablePadding="8dp"
+                android:drawableStart="@mipmap/wodexuqiu"
+                android:text="@string/my_want"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"></Space>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_help_feedback"
+            style="@style/item_style_with_foreg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:drawableStart="@mipmap/bangzhuyufankui"
+                android:drawablePadding="8dp"
+                android:text="@string/help_feedback"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_my_setting"
+            style="@style/item_style_with_foreg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:drawableStart="@mipmap/shezhi"
+                android:drawablePadding="8dp"
+                android:text="@string/setting"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_about_us"
+            style="@style/item_style_with_foreg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:drawableStart="@mipmap/guanyuwomen"
+                android:drawablePadding="8dp"
+                android:text="@string/about_us"
+                android:textColor="@color/text_black"
+                android:textSize="15sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/iv_right_jiantou"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"></Space>
+
+    <LinearLayout
+        android:id="@+id/logout"
+        style="@style/item_style_with_foreg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="退出登录"
+            android:textColor="@color/text_red"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"></Space>
+
+
+
+
+
+</LinearLayout>

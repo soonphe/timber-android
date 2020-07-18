@@ -1,0 +1,41 @@
+apply from: 'config.gradle'
+
+//gradle脚本执行所需依赖，分别是对应的maven库和插件
+buildscript {
+    repositories {
+        google()
+        jcenter{url "http://jcenter.bintray.com/"}
+        maven {
+            name 'Google'
+            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
+        }
+        maven { url 'https://jitpack.io' }
+        mavenCentral()
+    }
+    dependencies {
+        //gradle插件
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        //bintray插件
+//        classpath 'com.novoda:bintray-release:0.7.0'
+    }
+}
+
+//项目本身需要的依赖，比如项目所需的maven
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            name 'Google'
+            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
+        }
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+    }
+    buildDir = new File(rootDir, ".gradle-build/${path.replaceAll(':', '/')}")
+}
+
+//运行gradle clean时，执行此处定义的task任务
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
