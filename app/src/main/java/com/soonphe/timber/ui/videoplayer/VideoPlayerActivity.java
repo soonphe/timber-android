@@ -14,13 +14,13 @@ import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.Glide;
 import com.soonphe.timber.R;
-import com.soonphe.timber.view.entity.TAdvert;
-import com.soonphe.timber.view.entity.TMovie;
-import com.soonphe.timber.view.entity.TVideo;
+import com.soonphe.timber.entity.TAdvert;
+import com.soonphe.timber.entity.TMovie;
+import com.soonphe.timber.entity.TVideo;
 import com.soonphe.timber.ui.advert.AdvertContract;
 import com.soonphe.timber.ui.advert.AdvertPresenter;
 import com.soonphe.timber.base.BaseActivity;
-import com.soonphe.timber.view.utils.GlideUtils;
+import com.soonphe.timber.utils.GlideUtils;
 
 import org.litepal.LitePal;
 

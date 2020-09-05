@@ -4,10 +4,10 @@ package com.soonphe.timber.ui.fragment.home;
 import android.view.View;
 
 import com.soonphe.timber.base.mvp.BasePView;
-import com.soonphe.timber.view.entity.PCarousel;
-import com.soonphe.timber.view.entity.PCategory;
-import com.soonphe.timber.view.entity.PGoods;
-import com.soonphe.timber.view.entity.PUser;
+import com.soonphe.timber.entity.PCarousel;
+import com.soonphe.timber.entity.PCategory;
+import com.soonphe.timber.entity.PGoods;
+import com.soonphe.timber.entity.PUser;
 
 import java.util.List;
 

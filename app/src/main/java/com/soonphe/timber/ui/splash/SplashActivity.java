@@ -20,8 +20,8 @@ import com.soonphe.timber.ui.advert.AdvertPresenter;
 import com.soonphe.timber.ui.data.DataContract;
 import com.soonphe.timber.ui.data.DataPresenter;
 import com.soonphe.timber.ui.main.MainActivity;
-import com.soonphe.timber.view.entity.TAdvert;
-import com.soonphe.timber.view.entity.TStats;
+import com.soonphe.timber.entity.TAdvert;
+import com.soonphe.timber.entity.TStats;
 
 import org.litepal.LitePal;
 

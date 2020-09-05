@@ -1,6 +1,6 @@
 package com.soonphe.timber.dto;
 
-import com.soonphe.timber.view.entity.TStats;
+import com.soonphe.timber.entity.TStats;
 
 /**
  * @Author soonphe

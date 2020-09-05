@@ -2,8 +2,8 @@ package com.soonphe.timber.ui.food;
 
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.di.PerActivity;
-import com.soonphe.timber.view.entity.TFood;
-import com.soonphe.timber.view.entity.TFoodType;
+import com.soonphe.timber.entity.TFood;
+import com.soonphe.timber.entity.TFoodType;
 import com.soonphe.timber.base.mvp.BasePresenter;
 
 import org.litepal.LitePal;

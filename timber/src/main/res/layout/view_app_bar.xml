@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <!-- 自定义状态栏 -->
-    <!--    <com.soonphe.timber.view.widget.statusbar.CustomStatusBar-->
+    <!--    <com.soonphe.timber.widget.statusbar.CustomStatusBar-->
     <!--        android:id="@+id/status_bar"-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="wrap_content" />-->

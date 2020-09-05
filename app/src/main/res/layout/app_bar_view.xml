@@ -5,7 +5,7 @@
               android:layout_height="60dp"
               android:orientation="vertical">
 
-    <com.soonphe.timber.view.widget.head.CustomStatusBar
+    <com.soonphe.timber.widget.head.CustomStatusBar
         android:id="@+id/status_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

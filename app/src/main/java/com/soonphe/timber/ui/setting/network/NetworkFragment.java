@@ -25,11 +25,11 @@ import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.facebook.stetho.common.LogUtil;
 import com.soonphe.timber.R;
-import com.soonphe.timber.view.adapter.WifiListAdapter;
+import com.soonphe.timber.adapter.WifiListAdapter;
 import com.soonphe.timber.base.BaseFragmentV4;
 import com.soonphe.timber.constants.Constants;
-import com.soonphe.timber.view.entity.WifiBean;
-import com.soonphe.timber.view.utils.WifiSupport;
+import com.soonphe.timber.entity.WifiBean;
+import com.soonphe.timber.utils.WifiSupport;
 import com.suke.widget.SwitchButton;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 

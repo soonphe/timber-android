@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.soonphe.timber.R;
-import com.soonphe.timber.constants.Constants;
-import com.soonphe.timber.services.hotspot.ServiceUtil;
 import com.soonphe.timber.base.BaseFragmentV4;
+import com.soonphe.timber.constants.Constants;
+import com.soonphe.timber.services.FloatBallService;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -80,7 +80,8 @@ public class HotspotFragment extends BaseFragmentV4 implements HotspotContract.V
      */
     private void startService() {
 
-        ServiceUtil.startService(getContext());
+        mContext.startService(new Intent(mContext, FloatBallService.class));
+//        ServiceUtil.startService(getContext());
     }
 
     /**

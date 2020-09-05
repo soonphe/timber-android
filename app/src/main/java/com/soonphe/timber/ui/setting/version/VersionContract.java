@@ -1,6 +1,6 @@
 package com.soonphe.timber.ui.setting.version;
 
-import com.soonphe.timber.view.entity.TVersion;
+import com.soonphe.timber.entity.TVersion;
 import com.soonphe.timber.base.mvp.BasePView;
 
 

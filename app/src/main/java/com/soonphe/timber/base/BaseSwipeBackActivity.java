@@ -3,10 +3,10 @@ package com.soonphe.timber.base;
 import android.os.Bundle;
 import android.view.View;
 
-import com.soonphe.timber.view.widget.swipebacklayout.SwipeBackLayout;
-import com.soonphe.timber.view.widget.swipebacklayout.Utils;
-import com.soonphe.timber.view.widget.swipebacklayout.activity.SwipeBackActivityBase;
-import com.soonphe.timber.view.widget.swipebacklayout.activity.SwipeBackActivityHelper;
+import com.soonphe.timber.widget.swipebacklayout.SwipeBackLayout;
+import com.soonphe.timber.widget.swipebacklayout.Utils;
+import com.soonphe.timber.widget.swipebacklayout.activity.SwipeBackActivityBase;
+import com.soonphe.timber.widget.swipebacklayout.activity.SwipeBackActivityHelper;
 
 
 

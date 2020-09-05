@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <!--设置项目中数据库的名字 -->
-    <dbname value="tuyue_new_db" ></dbname>
+    <dbname value="timber_db" ></dbname>
 
     <!--用于设定数据库的版本号，每次你想要更新数据库，修改该值 -->
-    <version value="2018090401" ></version>
+    <version value="1.0.1" ></version>
 
     <!-- 用于设定所有的映射模型，配置对应的类 -->
     <list>
-        <mapping class="com.soonphe.timber.view.entity.TAdvertType"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TAdvert"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TVideoType"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TVideo"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TGameType"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TGame"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TBookType"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TBook"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TFoodType"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TFood"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TCity"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TCityArticle"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TArticleType"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TArticle"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TVersion"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TDataVersion"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TMovie"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TStats"></mapping>
-        <mapping class="com.soonphe.timber.view.entity.TUser"></mapping>
+        <mapping class="com.soonphe.timber.entity.TAdvertType"></mapping>
+        <mapping class="com.soonphe.timber.entity.TAdvert"></mapping>
+        <mapping class="com.soonphe.timber.entity.TVideoType"></mapping>
+        <mapping class="com.soonphe.timber.entity.TVideo"></mapping>
+        <mapping class="com.soonphe.timber.entity.TGameType"></mapping>
+        <mapping class="com.soonphe.timber.entity.TGame"></mapping>
+        <mapping class="com.soonphe.timber.entity.TBookType"></mapping>
+        <mapping class="com.soonphe.timber.entity.TBook"></mapping>
+        <mapping class="com.soonphe.timber.entity.TFoodType"></mapping>
+        <mapping class="com.soonphe.timber.entity.TFood"></mapping>
+        <mapping class="com.soonphe.timber.entity.TCity"></mapping>
+        <mapping class="com.soonphe.timber.entity.TCityArticle"></mapping>
+        <mapping class="com.soonphe.timber.entity.TArticleType"></mapping>
+        <mapping class="com.soonphe.timber.entity.TArticle"></mapping>
+        <mapping class="com.soonphe.timber.entity.TVersion"></mapping>
+        <mapping class="com.soonphe.timber.entity.TDataVersion"></mapping>
+        <mapping class="com.soonphe.timber.entity.TMovie"></mapping>
+        <mapping class="com.soonphe.timber.entity.TStats"></mapping>
+        <mapping class="com.soonphe.timber.entity.TUser"></mapping>
     </list>
     <!--
             keep ：按类和字段名大小写作为表名和列名

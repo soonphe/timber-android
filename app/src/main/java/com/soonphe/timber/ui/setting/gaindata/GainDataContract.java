@@ -1,7 +1,7 @@
 package com.soonphe.timber.ui.setting.gaindata;
 
-import com.soonphe.timber.view.entity.TAdvert;
-import com.soonphe.timber.view.entity.TDataVersion;
+import com.soonphe.timber.entity.TAdvert;
+import com.soonphe.timber.entity.TDataVersion;
 import com.soonphe.timber.base.mvp.BasePView;
 
 import java.util.List;

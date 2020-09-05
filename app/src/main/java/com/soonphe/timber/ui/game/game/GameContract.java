@@ -1,8 +1,8 @@
 package com.soonphe.timber.ui.game.game;
 
-import com.soonphe.timber.view.entity.TAdvert;
-import com.soonphe.timber.view.entity.TGame;
-import com.soonphe.timber.view.entity.TGameType;
+import com.soonphe.timber.entity.TAdvert;
+import com.soonphe.timber.entity.TGame;
+import com.soonphe.timber.entity.TGameType;
 import com.soonphe.timber.base.mvp.BasePView;
 
 import java.util.List;

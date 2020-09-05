@@ -37,7 +37,7 @@
             android:layout_weight="1"
             android:background="@color/transport_half" />
 
-        <com.soonphe.timber.view.widget.MyViewPager
+        <com.soonphe.timber.widget.MyViewPager
             android:id="@+id/mypager"
             android:layout_width="0dp"
             android:layout_height="match_parent"

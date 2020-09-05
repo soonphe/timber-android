@@ -1,7 +1,7 @@
 package com.soonphe.timber.ui.food;
 
-import com.soonphe.timber.view.entity.TFood;
-import com.soonphe.timber.view.entity.TFoodType;
+import com.soonphe.timber.entity.TFood;
+import com.soonphe.timber.entity.TFoodType;
 import com.soonphe.timber.base.mvp.BasePView;
 
 import java.util.List;

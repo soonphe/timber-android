@@ -2,7 +2,7 @@ package com.soonphe.timber.ui.video.video;
 
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.di.PerActivity;
-import com.soonphe.timber.view.entity.TVideo;
+import com.soonphe.timber.entity.TVideo;
 import com.soonphe.timber.base.mvp.BasePresenter;
 
 import org.litepal.LitePal;

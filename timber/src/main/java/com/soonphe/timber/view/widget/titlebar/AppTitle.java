@@ -103,42 +103,47 @@ public class AppTitle extends RelativeLayout implements View.OnClickListener, Vi
 
     public void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AppTitle);
-        Boolean titleBack = typedArray.getBoolean( R.styleable.AppTitle_showBack,false );
+        Boolean titleBack = typedArray.getBoolean(R.styleable.AppTitle_showBack, false);
 //        Boolean titleBack = typedArray.getBoolean( R.styleable.AppTitle_showBack,typedArray.getResources().getBoolean(R.bool.default_showBack) );
         if (titleBack) {
             appBarBack.setVisibility(VISIBLE);
         }
 //        appBarBack.setVisibility(ResourceUtils.getBoolean(typedArray, R.styleable.AppTitle_showBack, R.bool.default_showBack) ? VISIBLE : INVISIBLE);
 
-        canFinish = typedArray.getBoolean( R.styleable.AppTitle_canFinish,true );
+        canFinish = typedArray.getBoolean(R.styleable.AppTitle_canFinish, true);
 
-        String titleText = typedArray.getString( R.styleable.AppTitle_centreText);
+        String titleText = typedArray.getString(R.styleable.AppTitle_centreText);
         if (titleText != null && titleText.length() > 0) {
             appBarTitle.setVisibility(VISIBLE);
             appBarTitle.setText(titleText);
-            appBarTitle.setTextColor(ResourceUtils.getColor(typedArray, R.styleable.AppTitle_centreTextColor, R.color.default_textColor));
-            appBarTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, ResourceUtils.getDimenSize(typedArray, R.styleable.AppTitle_centreTextSize, R.dimen.default_textSize));
+            appBarTitle.setTextColor(typedArray.getColor(R.styleable.AppTitle_centreTextColor, typedArray.getResources().getColor(R.color.default_textColor)));
+            appBarTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, typedArray.getDimensionPixelSize(R.styleable.AppTitle_centreTextSize, typedArray.getResources().getDimensionPixelSize(R.dimen.default_textSize)));
+//            appBarTitle.setTextColor(typedArray.getColor(R.styleable.AppTitle_centreTextColor, 0));
+//            appBarTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, ResourceUtils.getDimenSize(typedArray, R.styleable.AppTitle_centreTextSize, R.dimen.default_textSize));
         }
 
-        int button1Res = typedArray.getResourceId( R.styleable.AppTitle_centerButtonImgSrc, 0);
+        int button1Res = typedArray.getResourceId(R.styleable.AppTitle_centerButtonImgSrc, 0);
         if (button1Res > 0) {
 //            appBarCenterBtn.setVisibility(button1Res == 0 ? GONE : VISIBLE);
             appBarCenterBtn.setVisibility(VISIBLE);
             appBarCenterBtn.setImageResource(button1Res);
         }
 
-        int button2Res = typedArray.getResourceId( R.styleable.AppTitle_rightButtonImgSrc, 0);
+        int button2Res = typedArray.getResourceId(R.styleable.AppTitle_rightButtonImgSrc, 0);
         if (button2Res > 0) {
             appBarRightBtn.setVisibility(VISIBLE);
             appBarRightBtn.setImageResource(button2Res);
         }
 
-        String rtitleText = typedArray.getString( R.styleable.AppTitle_centreText);
+        String rtitleText = typedArray.getString(R.styleable.AppTitle_centreText);
         if (rtitleText != null && rtitleText.length() > 0) {
             appBarRightTv.setVisibility(VISIBLE);
-            appBarRightTv.setText(ResourceUtils.getString(typedArray, R.styleable.AppTitle_rightText));
-            appBarRightTv.setTextColor(ResourceUtils.getColor(typedArray, R.styleable.AppTitle_rightTextColor, R.color.default_textColor));
-            appBarRightTv.setTextSize(TypedValue.COMPLEX_UNIT_PX, ResourceUtils.getDimenSize(typedArray, R.styleable.AppTitle_rightTextSize, R.dimen.default_textSize));
+            appBarRightTv.setText(typedArray.getString(R.styleable.AppTitle_rightText));
+
+            appBarTitle.setTextColor(typedArray.getColor(R.styleable.AppTitle_rightTextColor, typedArray.getResources().getColor(R.color.default_textColor)));
+            appBarTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, typedArray.getDimensionPixelSize(R.styleable.AppTitle_rightTextSize, typedArray.getResources().getDimensionPixelSize(R.dimen.default_textSize)));
+//            appBarRightTv.setTextColor(ResourceUtils.getColor(typedArray, R.styleable.AppTitle_rightTextColor, R.color.default_textColor));
+//            appBarRightTv.setTextSize(TypedValue.COMPLEX_UNIT_PX, ResourceUtils.getDimenSize(typedArray, R.styleable.AppTitle_rightTextSize, R.dimen.default_textSize));
         }
 
         typedArray.recycle();

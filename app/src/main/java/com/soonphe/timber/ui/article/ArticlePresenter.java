@@ -2,8 +2,8 @@ package com.soonphe.timber.ui.article;
 
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.di.PerActivity;
-import com.soonphe.timber.view.entity.TArticle;
-import com.soonphe.timber.view.entity.TArticleType;
+import com.soonphe.timber.entity.TArticle;
+import com.soonphe.timber.entity.TArticleType;
 import com.soonphe.timber.base.mvp.BasePresenter;
 
 import org.litepal.LitePal;

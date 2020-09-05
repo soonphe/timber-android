@@ -10,11 +10,11 @@ import com.blankj.utilcode.util.BarUtils;
 import com.bumptech.glide.Glide;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
-import com.soonphe.timber.view.entity.TAdvert;
+import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.ui.advert.AdvertContract;
 import com.soonphe.timber.ui.advert.AdvertPresenter;
 import com.soonphe.timber.ui.splash.SplashActivity;
-import com.soonphe.timber.view.utils.GlideUtils;
+import com.soonphe.timber.utils.GlideUtils;
 import com.soonphe.timber.view.widget.unlock.CustomerUnlockView;
 
 import org.litepal.LitePal;

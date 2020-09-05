@@ -10,7 +10,7 @@ import com.lzy.okgo.model.Response;
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.constants.Constants;
 import com.soonphe.timber.di.PerActivity;
-import com.soonphe.timber.view.entity.TVersion;
+import com.soonphe.timber.entity.TVersion;
 import com.soonphe.timber.base.mvp.BasePresenter;
 
 import org.litepal.LitePal;

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
-import com.soonphe.timber.view.entity.TAdvert;
+import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.base.BaseActivity;
 
 import java.util.List;

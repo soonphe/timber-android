@@ -2,7 +2,7 @@ package com.soonphe.timber.ui.city.citydetail;
 
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.di.PerActivity;
-import com.soonphe.timber.view.entity.TCityArticle;
+import com.soonphe.timber.entity.TCityArticle;
 import com.soonphe.timber.base.mvp.BasePresenter;
 
 import org.litepal.LitePal;

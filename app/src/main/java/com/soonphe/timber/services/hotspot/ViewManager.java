@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 
+import com.soonphe.timber.services.FloatBallService;
+
 import java.lang.reflect.Field;
 
 /**
@@ -47,7 +49,9 @@ public class ViewManager {
                         "com.ywb.tuyue.ui.main.MainActivity");
                 intent.setComponent(cn);
                 context.startActivity(intent);
-                ServiceUtil.stopService();
+                //停止service
+                context.stopService(new Intent(context, FloatBallService.class));
+//                ServiceUtil.stopService();
             }
         };
         floatBall.setOnClickListener(clickListener);

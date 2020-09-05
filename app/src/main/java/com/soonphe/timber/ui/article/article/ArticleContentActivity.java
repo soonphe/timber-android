@@ -11,7 +11,7 @@ import com.blankj.utilcode.util.EmptyUtils;
 import com.just.library.AgentWeb;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
-import com.soonphe.timber.view.entity.TArticle;
+import com.soonphe.timber.entity.TArticle;
 import com.soonphe.timber.view.widget.titlebar.AppTitle;
 
 import org.litepal.LitePal;

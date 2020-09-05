@@ -12,8 +12,8 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.soonphe.timber.R;
 import com.soonphe.timber.constants.Constants;
 import com.soonphe.timber.constants.enums.DownloadEventEnum;
-import com.soonphe.timber.view.entity.TAdvert;
-import com.soonphe.timber.view.entity.TDataVersion;
+import com.soonphe.timber.entity.TAdvert;
+import com.soonphe.timber.entity.TDataVersion;
 import com.soonphe.timber.base.BaseFragmentV4;
 import com.soonphe.timber.ui.setting.download.DownloadAllActivity;
 

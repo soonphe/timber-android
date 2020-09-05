@@ -15,7 +15,7 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseFragmentV4;
-import com.soonphe.timber.view.entity.TVersion;
+import com.soonphe.timber.entity.TVersion;
 
 import java.io.File;
 

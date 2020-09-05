@@ -12,8 +12,8 @@ import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseFragmentV4;
-import com.soonphe.timber.view.entity.TVideo;
-import com.soonphe.timber.view.adapter.VideoAdapter;
+import com.soonphe.timber.entity.TVideo;
+import com.soonphe.timber.adapter.VideoAdapter;
 import com.soonphe.timber.ui.videoplayer.VideoPlayerActivity;
 
 import java.util.List;

@@ -24,16 +24,16 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
 import com.soonphe.timber.constants.Constants;
-import com.soonphe.timber.view.entity.TStats;
-import com.soonphe.timber.view.entity.TUser;
-import com.soonphe.timber.view.entity.TabEntity;
-import com.soonphe.timber.view.adapter.ViewPagerAdapter;
+import com.soonphe.timber.entity.TStats;
+import com.soonphe.timber.entity.TUser;
+import com.soonphe.timber.entity.TabEntity;
+import com.soonphe.timber.adapter.ViewPagerAdapter;
 import com.soonphe.timber.ui.fragment.mine.MineFragment;
 import com.soonphe.timber.ui.fragment.home.HomeFragment;
 import com.soonphe.timber.ui.jpush.ExampleUtil;
-import com.soonphe.timber.view.utils.DeviceUtils;
-import com.soonphe.timber.view.utils.ShowPushMessageUtils;
-import com.soonphe.timber.view.widget.MyViewPager;
+import com.soonphe.timber.utils.DeviceUtils;
+import com.soonphe.timber.utils.ShowPushMessageUtils;
+import com.soonphe.timber.widget.MyViewPager;
 
 import org.json.JSONObject;
 

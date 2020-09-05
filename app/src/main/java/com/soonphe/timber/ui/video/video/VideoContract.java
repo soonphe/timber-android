@@ -1,6 +1,6 @@
 package com.soonphe.timber.ui.video.video;
 
-import com.soonphe.timber.view.entity.TVideo;
+import com.soonphe.timber.entity.TVideo;
 import com.soonphe.timber.base.mvp.BasePView;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.soonphe.timber.ui.city.city;
 
-import com.soonphe.timber.view.entity.TCity;
+import com.soonphe.timber.entity.TCity;
 import com.soonphe.timber.base.mvp.BasePView;
 
 import java.util.List;

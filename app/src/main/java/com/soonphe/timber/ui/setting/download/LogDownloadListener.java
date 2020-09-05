@@ -3,15 +3,15 @@ package com.soonphe.timber.ui.setting.download;
 import com.blankj.utilcode.util.LogUtils;
 import com.lzy.okgo.model.Progress;
 import com.lzy.okserver.download.DownloadListener;
-import com.soonphe.timber.view.entity.TAdvert;
-import com.soonphe.timber.view.entity.TArticle;
-import com.soonphe.timber.view.entity.TBook;
-import com.soonphe.timber.view.entity.TCity;
-import com.soonphe.timber.view.entity.TCityArticle;
-import com.soonphe.timber.view.entity.TFood;
-import com.soonphe.timber.view.entity.TGame;
-import com.soonphe.timber.view.entity.TMovie;
-import com.soonphe.timber.view.entity.TVideo;
+import com.soonphe.timber.entity.TAdvert;
+import com.soonphe.timber.entity.TArticle;
+import com.soonphe.timber.entity.TBook;
+import com.soonphe.timber.entity.TCity;
+import com.soonphe.timber.entity.TCityArticle;
+import com.soonphe.timber.entity.TFood;
+import com.soonphe.timber.entity.TGame;
+import com.soonphe.timber.entity.TMovie;
+import com.soonphe.timber.entity.TVideo;
 
 import org.litepal.crud.LitePalSupport;
 

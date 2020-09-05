@@ -15,7 +15,7 @@ import com.blankj.utilcode.util.ZipUtils;
 import com.just.library.AgentWeb;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
-import com.soonphe.timber.view.entity.TGame;
+import com.soonphe.timber.entity.TGame;
 import com.soonphe.timber.view.widget.titlebar.AppTitle;
 
 import org.litepal.LitePal;

@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.soonphe.timber.R;
-import com.soonphe.timber.view.utils.WifiSupport;
+import com.soonphe.timber.utils.WifiSupport;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;

@@ -14,11 +14,11 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.soonphe.timber.R;
-import com.soonphe.timber.view.adapter.CityArticleAdapter;
+import com.soonphe.timber.adapter.CityArticleAdapter;
 import com.soonphe.timber.base.BaseActivity;
-import com.soonphe.timber.view.entity.TCity;
-import com.soonphe.timber.view.entity.TCityArticle;
-import com.soonphe.timber.view.entity.TabEntity;
+import com.soonphe.timber.entity.TCity;
+import com.soonphe.timber.entity.TCityArticle;
+import com.soonphe.timber.entity.TabEntity;
 import com.soonphe.timber.ui.city.cityarticle.CityArticleActivity;
 import com.soonphe.timber.view.widget.titlebar.AppTitle;
 

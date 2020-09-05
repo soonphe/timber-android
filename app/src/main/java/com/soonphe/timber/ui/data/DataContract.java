@@ -1,6 +1,6 @@
 package com.soonphe.timber.ui.data;
 
-import com.soonphe.timber.view.entity.TStats;
+import com.soonphe.timber.entity.TStats;
 import com.soonphe.timber.base.mvp.BasePView;
 
 public class DataContract {
