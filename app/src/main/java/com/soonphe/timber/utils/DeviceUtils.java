@@ -195,38 +195,38 @@ public class DeviceUtils {
      */
     public static String getTelephone(Context context) {
         //获取手机号码
-        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+//        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            tm.getDeviceId();
-            String deviceid = tm.getDeviceId();//获取智能设备唯一编号
-            String te1 = tm.getLine1Number();//获取本机号码
-            String imei = tm.getSimSerialNumber();//获得SIM卡的序号
-            String imsi = tm.getSubscriberId();//得到用户Id
-            return te1;
+//            tm.getDeviceId();
+//            String deviceid = tm.getDeviceId();//获取智能设备唯一编号
+//            String te1 = tm.getLine1Number();//获取本机号码
+//            String imei = tm.getSimSerialNumber();//获得SIM卡的序号
+//            String imsi = tm.getSubscriberId();//得到用户Id
+//            return te1;
         }
         return null;
     }
 
-    /**
+    /**`
      * 判断是否包含SIM卡
      * @return 状态
      */
-    public static boolean ishasSimCard(Context context) {
-        TelephonyManager telMgr = (TelephonyManager)
-                context.getSystemService(Context.TELEPHONY_SERVICE);
-        int simState = telMgr.getSimState();
-        boolean result = true;
-        switch (simState) {
-            case TelephonyManager.SIM_STATE_ABSENT:
-                result = false; // 没有SIM卡
-                break;
-            case TelephonyManager.SIM_STATE_UNKNOWN:
-                result = false;
-                break;
-        }
-        System.out.println(result+"//////////");  //false 代表无SIM卡   true：代表有SIM卡
+//    public static boolean ishasSimCard(Context context) {
+//        TelephonyManager telMgr = (TelephonyManager)
+//                context.getSystemService(Context.TELEPHONY_SERVICE);
+//        int simState = telMgr.getSimState();
+//        boolean result = true;
+//        switch (simState) {
+//            case TelephonyManager.SIM_STATE_ABSENT:
+//                result = false; // 没有SIM卡
+//                break;
+//            case TelephonyManager.SIM_STATE_UNKNOWN:
+//                result = false;
+//                break;
+//        }
+//        System.out.println(result+"//////////");  //false 代表无SIM卡   true：代表有SIM卡
         //Log.d("MainActivity", result ? "有SIM卡" : "无SIM卡");
-        return result;
-    }
+//        return result;
+//    }
 
 }

@@ -5,16 +5,19 @@ buildscript {
     repositories {
         google()
         jcenter{url "http://jcenter.bintray.com/"}
-        maven {
-            name 'Google'
-            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
-        }
-        maven { url 'https://jitpack.io' }
+//        maven {
+//            name 'Google'
+//            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
+//        }
         mavenCentral()
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         //gradle插件
-        classpath 'com.android.tools.build:gradle:3.5.3'
+//        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:4.2.0'
+//        classpath 'com.android.tools.build:gradle:8.1.0'
         //bintray插件
 //        classpath 'com.novoda:bintray-release:0.7.0'
     }
@@ -25,12 +28,13 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            name 'Google'
-            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
-        }
-        maven { url "https://jitpack.io" }
+//        maven {
+//            name 'Google'
+//            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
+//        }
         mavenCentral()
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url "https://jitpack.io" }
     }
     buildDir = new File(rootDir, ".gradle-build/${path.replaceAll(':', '/')}")
 }

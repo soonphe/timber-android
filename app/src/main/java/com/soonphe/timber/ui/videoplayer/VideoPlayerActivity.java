@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.BarUtils;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.Glide;
 import com.soonphe.timber.R;
@@ -25,6 +24,7 @@ import com.soonphe.timber.utils.GlideUtils;
 import org.litepal.LitePal;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -101,17 +101,17 @@ public class VideoPlayerActivity extends BaseActivity implements AdvertContract.
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
 
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         advertPresenter.attachView(this);
         //取传过来的分类ID
-        if (EmptyUtils.isNotEmpty(mOperation.getParameter("video"))) {
+        if (Objects.nonNull(mOperation.getParameter("video"))) {
             id = (int) mOperation.getParameter("video");
             tVideo = LitePal.find(TVideo.class, id);
             movieName.setText(tVideo.getName());
@@ -128,7 +128,7 @@ public class VideoPlayerActivity extends BaseActivity implements AdvertContract.
                     .into(videoplayer.thumbImageView);
 
         }
-        if (EmptyUtils.isNotEmpty(mOperation.getParameter("movie"))) {
+        if (Objects.nonNull(mOperation.getParameter("movie"))) {
             id = (int) mOperation.getParameter("movie");
             tMovie = LitePal.find(TMovie.class, id);
             movieName.setText(tMovie.getFile_name());

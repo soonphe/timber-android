@@ -16,10 +16,11 @@ import com.soonphe.timber.services.FloatBallService;
 import java.lang.reflect.Field;
 
 /**
- * Created by ZY on 2016/8/10.
- * 管理者，单例模式
+ * 页面管理类
+ *
+ * @author soonphe
+ * @since 1.0
  */
-
 public class ViewManager {
 
     private FloatBall floatBall;
@@ -45,8 +46,8 @@ public class ViewManager {
                 windowManager.removeView(floatBall);
 
                 Intent intent = new Intent();
-                ComponentName cn = new ComponentName("com.ywb.tuyue",
-                        "com.ywb.tuyue.ui.main.MainActivity");
+                ComponentName cn = new ComponentName("com.soonphe.timber",
+                        "com.soonphe.timber.ui.main.MainActivity");
                 intent.setComponent(cn);
                 context.startActivity(intent);
                 //停止service

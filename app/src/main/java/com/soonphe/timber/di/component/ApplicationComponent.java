@@ -9,7 +9,6 @@ import com.soonphe.timber.base.BaseActivity;
 import com.soonphe.timber.components.okhttp.OkHttpHelper;
 import com.soonphe.timber.di.module.ApiModule;
 import com.soonphe.timber.di.module.ApplicationModule;
-import com.soonphe.timber.di.module.DBModule;
 
 import javax.inject.Singleton;
 
@@ -21,7 +20,7 @@ import dagger.Component;
  * @Description ApplicationComponent
  */
 @Singleton
-@Component(modules = {ApplicationModule.class, ApiModule.class, DBModule.class})
+@Component(modules = {ApplicationModule.class, ApiModule.class})
 public interface ApplicationComponent {
     Context getContext();
 

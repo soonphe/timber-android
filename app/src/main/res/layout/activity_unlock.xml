@@ -20,12 +20,12 @@
 
     </com.soonphe.timber.view.widget.unlock.CustomerUnlockView>
 
-<!--    <com.soonphe.timber.widget.CustomerUnlockView-->
+<!--    <com.soonphe.timber-widget.widget.CustomerUnlockView-->
 <!--        android:id="@+id/unlock_view"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent">-->
 
-<!--    </com.soonphe.timber.widget.CustomerUnlockView>-->
+<!--    </com.soonphe.timber-widget.widget.CustomerUnlockView>-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

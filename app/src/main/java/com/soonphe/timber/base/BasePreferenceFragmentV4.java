@@ -19,6 +19,7 @@ import butterknife.Unbinder;
  *
  * @version 1.0
  */
+@Deprecated
 public abstract class BasePreferenceFragmentV4 extends PreferenceFragment implements IBaseFragment, IBaseConstant {
 
     /**

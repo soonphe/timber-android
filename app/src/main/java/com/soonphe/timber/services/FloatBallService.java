@@ -10,8 +10,10 @@ import com.soonphe.timber.services.hotspot.ViewManager;
 
 /**
  * 悬浮窗按钮service
+ *
+ * @author soonphe
+ * @since 1.0
  */
-
 public class FloatBallService extends Service {
 
     public FloatBallService() {

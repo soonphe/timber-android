@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.soonphe.timber.R;
 import com.soonphe.timber.entity.PGoods;
+import com.soonphe.timber.entity.TAdvert;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import static com.soonphe.timber.constants.Constants.BASE_IMAGE_URL;
  * @Descprition 首页热门收藏HotRecycleViewAdapter
  */
 
-public class HomeHotAdapter extends BaseQuickAdapter<PGoods, BaseViewHolder> {
+public class HomeHotAdapter extends BaseQuickAdapter<TAdvert, BaseViewHolder> {
 
     /**
      * 创建adapter
@@ -28,16 +29,16 @@ public class HomeHotAdapter extends BaseQuickAdapter<PGoods, BaseViewHolder> {
         super(layoutResId);
     }
 
-    public HomeHotAdapter(int layoutResId, List<PGoods> list) {
+    public HomeHotAdapter(int layoutResId, List<TAdvert> list) {
         super(layoutResId,list);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, PGoods item) {
+    protected void convert(BaseViewHolder helper, TAdvert item) {
         Glide.with(mContext).load(BASE_IMAGE_URL+item.getPicUrl().split(",")[0]).into((ImageView) helper.getView(R.id.iv_hot_pic));
-        helper.setText(R.id.tv_name,item.getName()).
-                setText(R.id.tv_price, item.getPrice()+"").
-                setText(R.id.tv_buyNum,item.getRecommendValue()+"人已购");
+        helper.setText(R.id.tv_name,item.getTitle()).
+                setText(R.id.tv_price, item.getContent()+"").
+                setText(R.id.tv_buyNum,item.getId()+"人已购");
 
     }
 

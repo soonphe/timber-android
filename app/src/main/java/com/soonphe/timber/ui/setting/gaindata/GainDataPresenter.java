@@ -12,8 +12,8 @@ import com.lzy.okserver.download.DownloadTask;
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.constants.Constants;
 import com.soonphe.timber.di.PerActivity;
-import com.soonphe.timber.dto.TStatsDto;
-import com.soonphe.timber.dto.TUserDto;
+import com.soonphe.timber.pojo.dto.TStatsDto;
+import com.soonphe.timber.pojo.dto.TUserDto;
 import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.entity.TArticle;
 import com.soonphe.timber.entity.TBook;
@@ -29,6 +29,7 @@ import com.soonphe.timber.entity.TVideo;
 import com.soonphe.timber.base.mvp.BasePresenter;
 import com.soonphe.timber.ui.setting.download.LogDownloadListener;
 import com.soonphe.timber.utils.HTMLFormatUtils;
+import com.soonphe.timber.pojo.vo.AdvertVo;
 
 import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
@@ -42,7 +43,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
-import static com.soonphe.timber.constants.Constants.DOWNLOAD_PATH2;
+import static com.soonphe.timber.constants.Constants.DOWNLOAD_ExternalStorage_PATH;
 
 @PerActivity
 public class GainDataPresenter extends BasePresenter<GainDataContract.View> implements GainDataContract.Presenter {
@@ -69,13 +70,15 @@ public class GainDataPresenter extends BasePresenter<GainDataContract.View> impl
 
     @Override
     public void getAdvertList() {
-        mDisposable.add(api.getAdvertList(1000).subscribe(list -> {
+        AdvertVo advertVo = new AdvertVo();
+        advertVo.setTypeId(12);
+        mDisposable.add(api.getAdvertList(advertVo).subscribe(list -> {
                     if (LitePal.findFirst(TAdvert.class) != null) {
                         LitePal.deleteAll(TAdvert.class);
                     }
                     LitePal.saveAll(list);
                     for (TAdvert advert : list) {
-                        downloadFile(advert, 0, Constants.BASE_IMAGE_URL + advert.getPicurl());
+                        downloadFile(advert, 0, Constants.BASE_IMAGE_URL + advert.getPicUrl());
                         downloadFile(advert, 1, HTMLFormatUtils.getImgStr(advert.getContent()));
 
                     }
@@ -222,7 +225,7 @@ public class GainDataPresenter extends BasePresenter<GainDataContract.View> impl
         if (!OkDownload.getInstance().hasTask(downpath)) {
             OkDownload.request(downpath + "", request)    //传入tag和下载请求
 //                                .priority()   //优先级，int越大越高
-                    .folder(Constants.DOWNLOAD_PATH2 + "")   //下载的文件夹
+                    .folder(Constants.DOWNLOAD_ExternalStorage_PATH + "")   //下载的文件夹
                     .fileName(destFileName) //下载的文件名
                     .extra1((Serializable) object) //实体对象
                     .extra2(type) //类型：0图片 1文件
@@ -250,7 +253,7 @@ public class GainDataPresenter extends BasePresenter<GainDataContract.View> impl
      */
     public void downloadFile(LitePalSupport object, int type, String downpath) {
         //截取最后的文件名和尾缀
-        String localFilePath = DOWNLOAD_PATH2 + downpath.substring(downpath.lastIndexOf("/"), downpath.length()) + "";
+        String localFilePath = DOWNLOAD_ExternalStorage_PATH + downpath.substring(downpath.lastIndexOf("/"), downpath.length()) + "";
 
         LogUtils.e("要判断的文件地址" + localFilePath);
         //判断本地文件是否存在

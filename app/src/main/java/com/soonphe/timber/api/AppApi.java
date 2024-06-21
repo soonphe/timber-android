@@ -3,8 +3,9 @@ package com.soonphe.timber.api;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.soonphe.timber.constants.Constants;
-import com.soonphe.timber.dto.TStatsDto;
-import com.soonphe.timber.dto.TUserDto;
+import com.soonphe.timber.entity.PUser;
+import com.soonphe.timber.pojo.dto.TStatsDto;
+import com.soonphe.timber.pojo.dto.TUserDto;
 import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.entity.TAdvertType;
 import com.soonphe.timber.entity.TArticle;
@@ -23,6 +24,7 @@ import com.soonphe.timber.entity.TVersion;
 import com.soonphe.timber.entity.TVideo;
 import com.soonphe.timber.entity.TVideoType;
 import com.soonphe.timber.entity.TWorkBench;
+import com.soonphe.timber.pojo.vo.AdvertVo;
 
 import java.util.List;
 
@@ -35,9 +37,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * @Author soonphe
- * @Date 2017-11-20 18:04
- * @Description API
+ * API请求
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class AppApi implements AppApiService {
 
@@ -93,13 +96,13 @@ public class AppApi implements AppApiService {
 
 
     @Override
-    public Observable<TMovieBean> getMovieList() {
-        return getAppApi("http://192.168.1.6:8087/index.php/").getMovieList().compose(bindUntil());
+    public Observable<PUser> login(String userName, String password) {
+        return service.login(userName,password).compose(bindUntil());
     }
 
     @Override
-    public Observable<TWorkBench> getWorkBenchData() {
-        return getAppApi("https://jz-amp.daojia-inc.com/mock/459/").getWorkBenchData().compose(bindUntil());
+    public Observable<TMovieBean> getMovieList() {
+        return getAppApi("http://192.168.1.6:8087/index.php/").getMovieList().compose(bindUntil());
     }
 
     @Override
@@ -108,8 +111,8 @@ public class AppApi implements AppApiService {
     }
 
     @Override
-    public Observable<List<TAdvert>> getAdvertList(int pCommonSearchVO) {
-        return service.getAdvertList(pCommonSearchVO).compose(bindUntil());
+    public Observable<List<TAdvert>> getAdvertList(AdvertVo advertVo) {
+        return service.getAdvertList(advertVo).compose(bindUntil());
     }
 
     @Override

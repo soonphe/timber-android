@@ -1,9 +1,10 @@
 package com.soonphe.timber.base;
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description IBaseConstant
+ * IBaseConstant
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public interface IBaseConstant {
 

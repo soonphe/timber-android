@@ -15,8 +15,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.soonphe.timber.MyApplication;
 import com.soonphe.timber.di.component.ActivityComponent;
 import com.soonphe.timber.di.component.ApplicationComponent;
@@ -34,9 +34,10 @@ import io.reactivex.disposables.CompositeDisposable;
 
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description BaseActivity
+ * BaseActivity
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public abstract class BaseActivity extends AppCompatActivity implements IBaseActivity, IBaseConstant {
 
@@ -90,7 +91,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseAct
             bundle = new Bundle();
         }
         // 初始化参数
-        initParms(bundle);
+        initParams(bundle);
         // 初始化控件
         initView(mContextView);
         // 业务操作
@@ -346,11 +347,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseAct
     }
 
     protected void Toast(int message) {
-        ToastUtils.showShort(getResources().getString(message));
+        Toast.makeText(getContext(), getResources().getString(message), Toast.LENGTH_SHORT);
     }
 
     protected void Toast(String message) {
-        ToastUtils.showShort(message);
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT);
     }
 
     /**

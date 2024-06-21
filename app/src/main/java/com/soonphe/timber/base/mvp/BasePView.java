@@ -1,11 +1,13 @@
 package com.soonphe.timber.base.mvp;
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description BasePView
+ * BasePView 基础页面加载
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public interface BasePView {
+
     /**
      * 开始加载
      */

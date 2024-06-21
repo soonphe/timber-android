@@ -85,13 +85,13 @@ public class FoodActivity extends BaseActivity implements FoodContract.View, Dat
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         presenter.attachView(this);
         dataPresenter.attachView(this);
         stayTime = System.currentTimeMillis();

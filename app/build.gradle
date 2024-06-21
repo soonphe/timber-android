@@ -1,25 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    //打包配置
-    signingConfigs {
-        config {
-            keyPassword 'android'
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-        }
-    }
-    //版本配置
     compileSdkVersion 30
-    buildToolsVersion '29.0.3'
+    buildToolsVersion '30.0.2'
     defaultConfig {
         applicationId "com.soonphe.timber"
         versionCode 74
-        versionName "20200715.1.0.1"
-        minSdkVersion 21
-        targetSdkVersion 30
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionName "1.0"
+        minSdkVersion 19
+        targetSdkVersion 33
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         //极光key
         manifestPlaceholders = [
@@ -28,23 +18,27 @@ android {
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
     }
-    //recommend
-    dexOptions {
-        jumboMode = true
+    //签名配置
+    signingConfigs {
+        config {
+            keyPassword 'android'
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+        }
     }
-
+    //打包配置
     buildTypes {
         release {
             //不显示log
             buildConfigField "boolean" ,"LOG_DEBUG" ,"false"
             //混淆
             minifyEnabled false
-            //Zipalign优化
-            zipAlignEnabled true
-            // 移除无用的resource文件
+            //移除无用的resource文件
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
             signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
@@ -52,7 +46,10 @@ android {
             proguardFiles 'proguard-rules.pro'
         }
     }
-
+    //recommend
+    dexOptions {
+        jumboMode = true
+    }
     /*支持httpclient*/
     useLibrary 'org.apache.http.legacy'
     /*JDK*/
@@ -77,10 +74,17 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    //测试包
+    testImplementation externalJunit
+    androidTestImplementation externalJunitExt
+    androidTestImplementation externalAndroidTestEspressoCore
+    //androidx基础包
+    implementation externalAndroidXLegacyV4                          //原V4包
+    implementation externalAndroidXAppCompatV7                       //原V7包,这里的版本需要与compileSdkVersion对应
+    implementation 'com.google.android.material:material:1.1.0'      //原design包
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //原基础包
 //    implementation externalAndroidSupportV4
 //    implementation externalAndroidAppCompatV7
 //    implementation externalAndroidSupportV13
@@ -88,12 +92,6 @@ dependencies {
 //    implementation externalAndroidDesign
 //    implementation externalAndroidConstrainLayout
 //    implementation externalAndroidCardViewV7
-
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'         //原V4包
-    implementation 'androidx.appcompat:appcompat:1.1.0'         //原V7包
-    implementation 'com.google.android.material:material:1.1.0'      //原design包
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.cardview:cardview:1.0.0'
 
     //Tools library
     implementation externalAndroidMultiDex
@@ -117,40 +115,39 @@ dependencies {
     implementation externalBumptechGlide
     implementation externalGreenrobotEventbus
     implementation externalAlibabaFastjson
-    implementation externalTencentBuglyCrashreport
-    implementation externalTencentBuglyNativecrashreport
+//    implementation externalTencentBuglyCrashreport
+//    implementation externalTencentBuglyNativecrashreport
     implementation externalLitepal
     implementation externalSaripaar
-    implementation externalLuban
+//    implementation externalLuban
     implementation externalBlankjUtilcode
-    implementation externalJpush
-    implementation externalJcore
-    implementation externalPinyin
+//    implementation externalJpush
+//    implementation externalJcore
+//    implementation externalPinyin
     implementation externalJiaoziVideoPlayer
     implementation externalJsoup
     //View library
     implementation externalYouthBanner
-    implementation externalFlipboardBottomsheet
-    implementation externalFlipboardBottomsheetCommons
+//    implementation externalFlipboardBottomsheet
+//    implementation externalFlipboardBottomsheetCommons
     implementation externalBaseRecyclerViewAdapterHelper
     implementation externalJudeEasyrecyclerview
-    implementation externalWangAvi
-    implementation externalNineoldAndroid
+//    implementation externalWangAvi
+//    implementation externalNineoldAndroid
     implementation externalMaterialDialogs
     implementation externalMaterialDialogsCommons
     implementation externalJustAgentweb
-    implementation externalRecyclerviewAnimators
+//    implementation externalRecyclerviewAnimators
     implementation externalJudeRollviewpager
     implementation externalCircleimageview
     implementation externalCitypicker
-    implementation externalBadgeView
+//    implementation externalBadgeView
     implementation externalFlycoTabLayout
     implementation externalSmartRefreshLayout
-    implementation externalSmartRefreshLayoutHeader
-    implementation externalBottomNavigationView
+//    implementation externalBottomNavigationView
     implementation externalPhotoView
     implementation externalTxtReader
     implementation externalSwitchButton
 
-    implementation project(':timber') // 添加依赖模块
+    implementation project(':timber-widget') // 添加依赖模块
 }

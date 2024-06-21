@@ -2,10 +2,12 @@ package com.soonphe.timber.ui.splash;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
@@ -34,13 +36,15 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static com.soonphe.timber.constants.Constants.BASE_IMAGE_URL;
 import static com.soonphe.timber.constants.Constants.IS_MOBILE;
 import static com.soonphe.timber.constants.Constants.NETWORK_AVAILABLE;
 
 /**
- * @Author soonphe
- * @Date 2018-08-30 10:56
- * @Description flash闪屏页
+ * flash闪屏页
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class SplashActivity extends BaseActivity implements AdvertContract.View, DataContract.View {
 
@@ -55,8 +59,10 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
     TextView splashCountdown;
 
     Timer timer = new Timer();
+    /**
+     * flash最大停留时间
+     */
     int currentSecond = 4;
-    int minTime = 0;
 
 
     @Override
@@ -65,22 +71,23 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
     }
 
     @Override
     public void initView(View view) {
 
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         advertPresenter.attachView(this);
         dataPresenter.attachView(this);
-
+        //背景栏默认图片
         Glide.with(this).load(R.mipmap.flash_bg).into(ivFlash);
-
         //判断网络是否可用
+        Log.d("SplashActivity","网络是否可用："+NetworkUtils.isAvailableByPing());
         if (NetworkUtils.isAvailableByPing()) {
             SPUtils.getInstance().put(NETWORK_AVAILABLE, true);
             //判断是否为wifi网络
+            Log.d("SplashActivity","网络运营商名称："+NetworkUtils.getNetworkOperatorName());
             if (NetworkUtils.getNetworkOperatorName() != null) {
                 SPUtils.getInstance().put(IS_MOBILE, true);
             }
@@ -92,8 +99,8 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
 
     @Override
     public void doBusiness(Context mContext) {
-        //获取广告
-        advertPresenter.getAdvertListByType(2);
+        //获取flash广告
+        advertPresenter.getAdvertListByType(12);
     }
 
     @Override
@@ -101,7 +108,7 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
         if (list.size() > 0) {
             //这里只选取最新的1张
             Glide.with(this)
-                    .load(list.get(0).getDownloadPic())
+                    .load(BASE_IMAGE_URL + list.get(0).getPicUrl())
                     .error(R.mipmap.flash_bg)
                     .into(ivFlash);
         }
@@ -127,7 +134,7 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
             public void run() {
                 currentSecond--;
                 runOnUiThread(() -> splashCountdown.setText(currentSecond + "秒跳过"));
-                if (currentSecond == minTime) {
+                if (currentSecond == 0) {
                     if (timer != null) {
                         timer.cancel();
                     }
@@ -167,7 +174,7 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
 
     @Override
     public void onError(String error) {
-
+        LogUtils.e(error);
     }
 
     @Override

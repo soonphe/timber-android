@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
-import com.blankj.utilcode.util.NetworkUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -13,9 +12,10 @@ import java.util.Stack;
 
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description BaseApplication
+ * BaseApplication
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public abstract class BaseApplication extends Application {
 
@@ -23,18 +23,6 @@ public abstract class BaseApplication extends Application {
      * 对外提供整个应用生命周期的Context
      **/
     private static Context instance;
-    /**
-     * 渠道ID
-     **/
-    public static String channelId = "Ajava";
-    /**
-     * 应用程序版本versionName
-     **/
-    public static String version = "error";
-    /**
-     * 设备ID
-     **/
-    public static String deviceId = "error";
     /**
      * 整个应用全局可访问数据集合
      **/
@@ -61,18 +49,6 @@ public abstract class BaseApplication extends Application {
         super.onCreate();
         instance = this;
     }
-
-    /**
-     * 获取网络是否已连接
-     *
-     * @return
-     */
-    public static boolean isNetworkReady() {
-        return NetworkUtils.isConnected();
-    }
-
-
-    /*******************************************************Application数据操作API（开始）********************************************************/
 
     /**
      * 往Application放置数据（最大不允许超过5个）
@@ -103,11 +79,6 @@ public abstract class BaseApplication extends Application {
     public static void removeData(String key) {
         if (gloableData.containsKey(key)) gloableData.remove(key);
     }
-
-    /*******************************************************Application数据操作API（结束）********************************************************/
-
-
-    /*******************************************Application中存放的Activity操作（压栈/出栈）API（开始）*****************************************/
 
     /**
      * 将Activity压入Application栈
@@ -169,5 +140,4 @@ public abstract class BaseApplication extends Application {
      */
     public abstract void exit();
 
-    /*******************************************Application中存放的Activity操作（压栈/出栈）API（结束）*****************************************/
 }

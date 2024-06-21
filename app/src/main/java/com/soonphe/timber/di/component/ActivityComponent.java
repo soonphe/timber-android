@@ -15,6 +15,7 @@ import com.soonphe.timber.ui.city.citydetail.CitydetailActivity;
 import com.soonphe.timber.ui.food.FoodActivity;
 import com.soonphe.timber.ui.game.game.GameActivity;
 import com.soonphe.timber.ui.game.gameplay.GamePlayActivity;
+import com.soonphe.timber.ui.login.LoginActivity;
 import com.soonphe.timber.ui.main.MainActivity;
 import com.soonphe.timber.ui.setting.SettingActivity;
 import com.soonphe.timber.ui.splash.SplashActivity;
@@ -45,6 +46,8 @@ public interface ActivityComponent {
     void inject(MainActivity activity);//主界面
 
     void inject(SplashActivity activity);//欢迎页
+
+    void inject(LoginActivity activity);//登录
 
     void inject(UnlockActivity unlockActivity);//解锁屏页
 

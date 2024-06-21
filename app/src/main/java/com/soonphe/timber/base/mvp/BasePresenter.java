@@ -4,12 +4,14 @@ package com.soonphe.timber.base.mvp;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description BasePresenter 持有View对象
+ * BasePresenter 关联持有View对象
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public abstract class BasePresenter<T> {
-    public    T                   mView;//View
+
+    public    T                   mView;
     protected CompositeDisposable mDisposable;
 
     /**

@@ -33,9 +33,10 @@ import butterknife.BindView;
 
 
 /**
- * @Author soonphe
- * @Date 2018-08-22 11:01
- * @Description 设置
+ * 设置Activity
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class SettingActivity extends BaseActivity implements SettingContract.View {
 
@@ -76,14 +77,14 @@ public class SettingActivity extends BaseActivity implements SettingContract.Vie
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
 
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         setTouchDissIm(true);
         //设置不锁屏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

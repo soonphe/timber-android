@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.blankj.utilcode.util.BarUtils;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.just.library.AgentWeb;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
@@ -15,6 +14,8 @@ import com.soonphe.timber.entity.TArticle;
 import com.soonphe.timber.view.widget.titlebar.AppTitle;
 
 import org.litepal.LitePal;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 
@@ -51,15 +52,15 @@ public class ArticleContentActivity extends BaseActivity implements ArticleConte
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         //取传过来的分类ID
-        if (EmptyUtils.isNotEmpty(mOperation.getParameter("article"))) {
+        if (Objects.nonNull(mOperation.getParameter("article"))) {
             id = (int) mOperation.getParameter("article");
         }
         tArticle = LitePal.find(TArticle.class,id);

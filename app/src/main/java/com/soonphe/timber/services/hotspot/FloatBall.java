@@ -59,7 +59,7 @@ public class FloatBall extends View {
         textPaint.setFakeBoldText(false);
 
 
-        Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.homecare);
         //将图片裁剪到指定大小
         bitmap = Bitmap.createScaledBitmap(src, width, height, true);
     }

@@ -6,6 +6,12 @@ import android.view.MotionEvent;
 
 import androidx.viewpager.widget.ViewPager;
 
+/**
+ * 自定义ViewPager，用于禁止左右滑动
+ *
+ * @author soonphe
+ * @since 1.0
+ */
 public class MyViewPager extends ViewPager {
 
     private boolean enabled;

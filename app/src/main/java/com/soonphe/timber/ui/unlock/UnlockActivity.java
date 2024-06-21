@@ -60,19 +60,19 @@ public class UnlockActivity extends BaseActivity implements AdvertContract.View,
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         advertPresenter.attachView(this);
         presenter.attachView(this);
         Glide.with(this).load(R.mipmap.unlock_bg).into(unlockBgAdvert);
 
         //这里调用初始化litepal
-        SQLiteDatabase db = LitePal.getDatabase();
+//        SQLiteDatabase db = LitePal.getDatabase();
         //自定义view回调监听
         unlockView.setOnLockListener(isLocked -> {
             if (isLocked) {
@@ -83,7 +83,7 @@ public class UnlockActivity extends BaseActivity implements AdvertContract.View,
 
     @Override
     public void doBusiness(Context mContext) {
-        advertPresenter.getAdvertListByType(1);
+//        advertPresenter.getAdvertListByType(1);
     }
 
     @Override

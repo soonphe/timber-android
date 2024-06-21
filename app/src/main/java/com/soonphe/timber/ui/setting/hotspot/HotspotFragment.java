@@ -59,7 +59,7 @@ public class HotspotFragment extends BaseFragmentV4 implements HotspotContract.V
                     Toast.makeText(getContext(), "请输入密码！", Toast.LENGTH_SHORT).show();// //218069
                     return;
                 }
-                if (!inputPassword.equals(Constants.ADMIN)) {
+                if (!inputPassword.equals(Constants.ADMIN_PASSWORD)) {
                     Toast.makeText(getContext(), "密码不正确！", Toast.LENGTH_SHORT).show();
                     return;
                 }

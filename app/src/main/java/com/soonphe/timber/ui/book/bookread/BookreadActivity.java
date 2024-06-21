@@ -13,7 +13,6 @@ import com.bifan.txtreaderlib.bean.TxtMsg;
 import com.bifan.txtreaderlib.interfaces.ILoadListener;
 import com.bifan.txtreaderlib.main.TxtReaderView;
 import com.blankj.utilcode.util.BarUtils;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
@@ -21,6 +20,8 @@ import com.soonphe.timber.entity.TBook;
 import com.soonphe.timber.view.widget.titlebar.AppTitle;
 
 import org.litepal.LitePal;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -77,17 +78,17 @@ public class BookreadActivity extends BaseActivity implements BookreadContract.V
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
 
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
 
         //取传过来的分类ID
-        if (EmptyUtils.isNotEmpty(mOperation.getParameter("book"))) {
+        if (Objects.nonNull(mOperation.getParameter("book"))) {
             id = (int) mOperation.getParameter("book");
         }
         tBook = LitePal.find(TBook.class, id );

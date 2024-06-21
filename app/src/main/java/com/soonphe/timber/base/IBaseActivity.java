@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description IBaseActivity
+ * IBaseActivity
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public interface IBaseActivity extends IBaseConstant {
 
@@ -37,7 +38,7 @@ public interface IBaseActivity extends IBaseConstant {
      *
      * @param parms
      */
-    public void initParms(Bundle parms);
+    public void initParams(Bundle parms);
 
     /**
      * 初始化控件

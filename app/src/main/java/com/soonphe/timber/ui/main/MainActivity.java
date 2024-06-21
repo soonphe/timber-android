@@ -28,9 +28,10 @@ import com.soonphe.timber.entity.TStats;
 import com.soonphe.timber.entity.TUser;
 import com.soonphe.timber.entity.TabEntity;
 import com.soonphe.timber.adapter.ViewPagerAdapter;
+import com.soonphe.timber.ui.fragment.center.CenterFragment;
 import com.soonphe.timber.ui.fragment.mine.MineFragment;
 import com.soonphe.timber.ui.fragment.home.HomeFragment;
-import com.soonphe.timber.ui.jpush.ExampleUtil;
+import com.soonphe.timber.ui.fragment.msg.MsgFragment;
 import com.soonphe.timber.utils.DeviceUtils;
 import com.soonphe.timber.utils.ShowPushMessageUtils;
 import com.soonphe.timber.widget.MyViewPager;
@@ -64,7 +65,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @BindView(R.id.tl_2)
     CommonTabLayout mTabLayout_2;
 
-    private String[] mTitles = {"首页", "促销", "消息", "我的"};
+    private String[] mTitles = {"首页", "商城", "消息", "我的"};
     private int[] mIconUnselectIds = {
             R.mipmap.ic_home_normal, R.mipmap.ic_card_normal,
             R.mipmap.ic_msg_normal, R.mipmap.ic_center_normal};
@@ -83,7 +84,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
@@ -95,13 +96,13 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     public void initView(View view) {
 
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         setTouchDissIm(true);
         presenter.attachView(this);
 
         fragments.add(HomeFragment.getInstance());
-        fragments.add(new Fragment());
-        fragments.add(new Fragment());
+        fragments.add(CenterFragment.getInstance());
+        fragments.add(MsgFragment.getInstance());
         fragments.add(MineFragment.getInstance());
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
@@ -315,57 +316,57 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     //for receive customer msg from jpush server
-    private MessageReceiver mMessageReceiver;
-    public static final String MESSAGE_RECEIVED_ACTION = "com.ywb.tuyue.ui.main.MESSAGE_RECEIVED_ACTION";
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_MESSAGE = "message";
-    public static final String KEY_EXTRAS = "extras";
+//    private MessageReceiver mMessageReceiver;
+//    public static final String MESSAGE_RECEIVED_ACTION = "com.ywb.tuyue.ui.main.MESSAGE_RECEIVED_ACTION";
+//    public static final String KEY_TITLE = "title";
+//    public static final String KEY_MESSAGE = "message";
+//    public static final String KEY_EXTRAS = "extras";
+//
+//    /**
+//     * 注册接受广播
+//     */
+//    public void registerMessageReceiver() {
+//        mMessageReceiver = new MessageReceiver();
+//        IntentFilter filter = new IntentFilter();
+//        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+//        filter.addAction(MESSAGE_RECEIVED_ACTION);
+//        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, filter);
+//    }
 
-    /**
-     * 注册接受广播
-     */
-    public void registerMessageReceiver() {
-        mMessageReceiver = new MessageReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
-        filter.addAction(MESSAGE_RECEIVED_ACTION);
-        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, filter);
-    }
-
-    public class MessageReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            try {
-                if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
-                    String message = intent.getStringExtra(KEY_MESSAGE);
-                    String extras = intent.getStringExtra(KEY_EXTRAS);
-                    if (!ExampleUtil.isEmpty(message)) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(message);
-                            String picurl = jsonObject.getString("picurl");
-                            if (!picurl.contains("http")) {
-                                picurl = Constants.BASE_IMAGE_URL + picurl;
-                            }
-                            String name = jsonObject.getString("name");
-                            int id = jsonObject.getInt("id");
-                            if (SPUtils.getInstance().getBoolean(NETWORK_AVAILABLE)) {
-                                ShowPushMessageUtils.showPushDialog(
-                                        MainActivity.this,
-                                        picurl + "",
-                                        isForeground == true, isFinishing());
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                }
-            } catch (Exception e) {
-            }
-        }
-    }
+//    public class MessageReceiver extends BroadcastReceiver {
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            try {
+//                if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
+//                    String message = intent.getStringExtra(KEY_MESSAGE);
+//                    String extras = intent.getStringExtra(KEY_EXTRAS);
+//                    if (!ExampleUtil.isEmpty(message)) {
+//                        try {
+//                            JSONObject jsonObject = new JSONObject(message);
+//                            String picurl = jsonObject.getString("picurl");
+//                            if (!picurl.contains("http")) {
+//                                picurl = Constants.BASE_IMAGE_URL + picurl;
+//                            }
+//                            String name = jsonObject.getString("name");
+//                            int id = jsonObject.getInt("id");
+//                            if (SPUtils.getInstance().getBoolean(NETWORK_AVAILABLE)) {
+//                                ShowPushMessageUtils.showPushDialog(
+//                                        MainActivity.this,
+//                                        picurl + "",
+//                                        isForeground == true, isFinishing());
+//                            }
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//
+//
+//                    }
+//                }
+//            } catch (Exception e) {
+//            }
+//        }
+//    }
 
 
 }

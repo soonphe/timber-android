@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
+//import com.afollestad.materialdialogs.MaterialDialog;
 import com.soonphe.timber.MyApplication;
 
 import java.io.Serializable;
@@ -33,11 +33,11 @@ public class Operation {
     private MyApplication mApplication = null;
     /*** 日志输出标志**/
     private final static String TAG = Operation.class.getSimpleName();
-    private MaterialDialog dialog;
+//    private MaterialDialog dialog;
 
-    public MaterialDialog getDialog() {
-        return dialog;
-    }
+//    public MaterialDialog getDialog() {
+//        return dialog;
+//    }
 
     public Operation(Activity mContext) {
         this.mContext = mContext;
@@ -299,28 +299,28 @@ public class Operation {
      */
     public void showProgress(String context) {
         dismissDialog();
-        dialog = new MaterialDialog.Builder(mContext)
-                .cancelable(true)
-                .content(context)
-                .progress(true, 0)
-                .progressIndeterminateStyle(false)
-                .show();
+//        dialog = new MaterialDialog.Builder(mContext)
+//                .cancelable(true)
+//                .content(context)
+//                .progress(true, 0)
+//                .progressIndeterminateStyle(false)
+//                .show();
     }
 
     public void showProgress(String context, boolean cacanle) {
         dismissDialog();
-        dialog = new MaterialDialog.Builder(mContext)
-                .cancelable(cacanle)
-                .content(context)
-                .progress(true, 0)
-                .progressIndeterminateStyle(false)
-                .show();
+//        dialog = new MaterialDialog.Builder(mContext)
+//                .cancelable(cacanle)
+//                .content(context)
+//                .progress(true, 0)
+//                .progressIndeterminateStyle(false)
+//                .show();
     }
 
     public void dismissDialog() {
-        if (!mContext.isFinishing() && dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
-        }
+//        if (!mContext.isFinishing() && dialog != null && dialog.isShowing()) {
+//            dialog.dismiss();
+//        }
     }
 
 }

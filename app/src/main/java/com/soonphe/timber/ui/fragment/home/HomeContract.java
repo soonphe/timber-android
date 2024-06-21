@@ -6,8 +6,8 @@ import android.view.View;
 import com.soonphe.timber.base.mvp.BasePView;
 import com.soonphe.timber.entity.PCarousel;
 import com.soonphe.timber.entity.PCategory;
-import com.soonphe.timber.entity.PGoods;
 import com.soonphe.timber.entity.PUser;
+import com.soonphe.timber.entity.TAdvert;
 
 import java.util.List;
 
@@ -22,8 +22,8 @@ public interface HomeContract {
 
         void showCategoryMenuList(List<PCategory> carouseMenus);
         void showBannerList(List<PCarousel> banners);
-        void showHotGoodsList(List<PGoods> cards);
-        void getUserInfoSuccess(View v, PUser certify);
+        void showHotGoodsList(List<TAdvert> cards);
+        void getUserInfoSuccess(PUser certify);
 
     }
 
@@ -31,7 +31,7 @@ public interface HomeContract {
         void getCategoryMenuList(int parentId, int type);
         void getBannerList(String location);
         void getHotGoods(int start);
-        void getUserInfo(View v, int userId);
+        void getUserInfo(int userId);
 
     }
 }

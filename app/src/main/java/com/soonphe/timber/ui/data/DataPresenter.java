@@ -3,7 +3,7 @@ package com.soonphe.timber.ui.data;
 import com.blankj.utilcode.util.SPUtils;
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.di.PerActivity;
-import com.soonphe.timber.dto.TStatsDto;
+import com.soonphe.timber.pojo.dto.TStatsDto;
 import com.soonphe.timber.entity.TStats;
 import com.soonphe.timber.base.mvp.BasePresenter;
 

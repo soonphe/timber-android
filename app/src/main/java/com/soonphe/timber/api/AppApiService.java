@@ -1,8 +1,9 @@
 package com.soonphe.timber.api;
 
 
-import com.soonphe.timber.dto.TStatsDto;
-import com.soonphe.timber.dto.TUserDto;
+import com.soonphe.timber.entity.PUser;
+import com.soonphe.timber.pojo.dto.TStatsDto;
+import com.soonphe.timber.pojo.dto.TUserDto;
 import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.entity.TAdvertType;
 import com.soonphe.timber.entity.TArticle;
@@ -21,6 +22,7 @@ import com.soonphe.timber.entity.TVersion;
 import com.soonphe.timber.entity.TVideo;
 import com.soonphe.timber.entity.TVideoType;
 import com.soonphe.timber.entity.TWorkBench;
+import com.soonphe.timber.pojo.vo.AdvertVo;
 
 import java.util.List;
 
@@ -43,15 +45,16 @@ public interface AppApiService {
      *
      * @return
      */
-    @GET("Home/Interface/index?class=HallUse&method=getVideoList")
-    Observable<TMovieBean> getMovieList();
+    @POST("sysUser/login")
+    Observable<PUser> login(@Query("username")String userName, @Query("password")String password);
 
     /**
-     * 测试okhttp动态
+     * 获取本地电影列表（测试okhttp动态，传入本地网址请求）
+     *
      * @return
      */
-    @GET("workBench/getBenchData")
-    Observable<TWorkBench> getWorkBenchData();
+    @GET("Home/Interface/index?class=HallUse&method=getVideoList")
+    Observable<TMovieBean> getMovieList();
 
     /**
      * 获取广告类型
@@ -66,8 +69,9 @@ public interface AppApiService {
      *
      * @return
      */
-    @GET("advert/getList")
-    Observable<List<TAdvert>> getAdvertList(@Query("pageSize") int pageSize);
+    @Headers({"Content-Type: application/json", "Accept:  application/json"})
+    @POST("advert/getList")
+    Observable<List<TAdvert>> getAdvertList(@Body AdvertVo advertVo);
 
     /**
      * 获取视频类型

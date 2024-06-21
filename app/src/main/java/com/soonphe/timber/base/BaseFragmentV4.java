@@ -21,9 +21,10 @@ import io.reactivex.disposables.CompositeDisposable;
 
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description BaseFragment(V4)
+ * BaseFragmentV4
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment, IBaseConstant {
     protected CompositeDisposable compositeDisposable = new CompositeDisposable();

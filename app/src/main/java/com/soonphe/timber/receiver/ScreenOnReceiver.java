@@ -23,7 +23,7 @@ public class ScreenOnReceiver extends BroadcastReceiver {
     /**
      * 锁屏时间超过5分钟，进入主页面页面弹出注册页面
      */
-    CountDownTimer timer = new CountDownTimer(Constants.REGIST_SCREEN, Constants.REGIST_SCREEN_COUNT) {
+    CountDownTimer timer = new CountDownTimer(Constants.REGISTER_SCREEN_LOCK, Constants.REGIST_SCREEN_COUNT) {
         @Override
         public void onTick(long millisUntilFinished) {
             Log.e("锁屏倒计时", millisUntilFinished + "");

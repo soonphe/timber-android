@@ -1,19 +1,5 @@
 <resources>
-    <!-- Base application theme. -->
-<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--    </style>-->
-    <!-- 隐藏标题栏，同时隐藏状态栏(不能使用AppCompatTheme，Activity不能继承AppCompatActivity) -->
-<!--    <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--        &lt;!&ndash;<item name="android:windowIsTranslucent">true</item>&ndash;&gt;-->
-<!--    </style>-->
-    <!-- NoActionBar Theme-->
+    <!-- 应用主题：NoActionBar Theme-->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -21,12 +7,33 @@
         <!-- 内容布局拓展至标题栏 -->
         <!--<item name="android:windowIsTranslucent">true</item>-->
     </style>
+    <!-- 应用主题：含有ActionBar -->
+    <style name="AppTheme_DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!-- 应用主题：隐藏标题栏，同时隐藏状态栏(不能使用AppCompatTheme，Activity不能继承AppCompatActivity) -->
+    <style name="AppTheme_Fullscreen" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    </style>
 
     <!-- 标题栏样式 -->
     <style name="title_style">
         <item name="android:id">@id/app_title_id</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <!-- 标题栏+状态栏样式 -->
+    <style name="title_and_status_style">
+        <item name="android:id">@id/app_title_id</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:background">@color/colorPrimary</item>
     </style>

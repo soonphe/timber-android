@@ -9,7 +9,6 @@ import com.soonphe.timber.widget.swipebacklayout.activity.SwipeBackActivityBase;
 import com.soonphe.timber.widget.swipebacklayout.activity.SwipeBackActivityHelper;
 
 
-
 /**
  * android 系统中的四大组件之一Activity基类
  *

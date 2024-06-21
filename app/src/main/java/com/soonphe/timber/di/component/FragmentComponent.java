@@ -3,8 +3,10 @@ package com.soonphe.timber.di.component;
 
 import com.soonphe.timber.di.PerActivity;
 import com.soonphe.timber.di.module.ActivityModule;
+import com.soonphe.timber.ui.fragment.center.CenterFragment;
 import com.soonphe.timber.ui.fragment.mine.MineFragment;
 import com.soonphe.timber.ui.fragment.home.HomeFragment;
+import com.soonphe.timber.ui.fragment.msg.MsgFragment;
 import com.soonphe.timber.ui.setting.aboutus.AboutUsFragment;
 import com.soonphe.timber.ui.setting.gaindata.GainDataFragment;
 import com.soonphe.timber.ui.setting.hotspot.HotspotFragment;
@@ -25,13 +27,12 @@ import dagger.Component;
 public interface FragmentComponent {
 
     void inject(HomeFragment fragment);
+    void inject(CenterFragment fragment);
+    void inject(MsgFragment fragment);
     void inject(MineFragment fragment);
 
-    //电影
     void inject(MovieFragment fragment);
     void inject(VideoFragment fragment);
-
-    //设置
     void inject(AboutUsFragment fragment);
     void inject(GainDataFragment fragment);
     void inject(VersionFragment fragment);

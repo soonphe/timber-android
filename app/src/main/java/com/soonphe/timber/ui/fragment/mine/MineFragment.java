@@ -1,16 +1,30 @@
 package com.soonphe.timber.ui.fragment.mine;
 
+import static com.soonphe.timber.constants.Constants.USER_INFO;
+
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.blankj.utilcode.util.CacheMemoryUtils;
+import com.blankj.utilcode.util.SPUtils;
+import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseFragmentV4;
+import com.soonphe.timber.constants.Constants;
+import com.soonphe.timber.entity.PUser;
+import com.soonphe.timber.services.hotspot.ServiceUtil;
+import com.soonphe.timber.ui.login.LoginActivity;
+import com.soonphe.timber.ui.setting.SettingActivity;
 
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
@@ -70,7 +84,6 @@ public class MineFragment extends BaseFragmentV4 {
     CollapsingToolbarLayout toolbarLayout;
 
     private static MineFragment instance = new MineFragment();
-    private MineFragment (){}
     public static MineFragment getInstance() {
         return instance;
     }
@@ -87,7 +100,7 @@ public class MineFragment extends BaseFragmentV4 {
 
     @Override
     public void initView(View view) {
-        //动态波浪线
+        //动态波浪线（测试失败）
 //        final FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(-2, -2);
 //        lp.gravity = Gravity.CENTER;
 //        waveView.setOnWaveAnimationListener(new WaveView.OnWaveAnimationListener() {
@@ -115,25 +128,13 @@ public class MineFragment extends BaseFragmentV4 {
                 appBarTile.setAlpha(alpha);
             }
         });
+        setHeaderImageAndName();
+    }
 
-//        //设置头像与昵称
-//        PUser pUser = (PUser) CacheUtils.getInstance().getSerializable(USER);
-//        if (pUser != null) {
-//            if (pUser.getType() == 3) {
-//                Glide.with(getActivity())
-//                        .load(Constants.BASE_IMAGE_URL + pUser.getHeadPic())
-//                        .into(ciUserPic);
-//            } else {
-//                Glide.with(getActivity())
-//                        .load(pUser.getHeadPic())
-//                        .into(ciUserPic);
-//            }
-//            tvNikeName.setText(pUser.getName());
-//        } else {
-//            tvNikeName.setVisibility(View.GONE);
-//            liNologin.setVisibility(View.VISIBLE);
-//            logout.setVisibility(View.GONE);
-//        }
+    @Override
+    public void onResume() {
+        super.onResume();
+        setHeaderImageAndName();
     }
 
     @Override
@@ -160,7 +161,7 @@ public class MineFragment extends BaseFragmentV4 {
     public void onClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_login:
-//                mOperation.forward(LoginActivity.class);
+                mOperation.forward(LoginActivity.class);
                 break;
             case R.id.tv_reg:
 //                mOperation.forward(RegisterActivity.class);
@@ -169,11 +170,11 @@ public class MineFragment extends BaseFragmentV4 {
 //                mOperation.forward(HelpAndFeedbackActivity.class);
                 break;
             case R.id.rl_my_setting:
-                //启动Service
+                //启动Service（如果是Android 8.0或更高版本，确保你的应用有必要的权限来在后台运行服务，可能需要使用前台服务或者通过系统的JobScheduler、WorkManager来替代后台服务。）
 //                ServiceUtil.startService(getContext());
                 //进入设置页面
-//                startActivity(new Intent(Settings.ACTION_SETTINGS));
-//                mOperation.forward(SettingActivity.class);
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+                mOperation.forward(SettingActivity.class);
                 break;
             case R.id.rl_about_us:
 //                mOperation.forward(AboutUsActivity.class);
@@ -220,6 +221,30 @@ public class MineFragment extends BaseFragmentV4 {
 //                    mOperation.forwardAndFinish(LoginActivity.class);
 //                });
                 break;
+        }
+    }
+
+    /**
+     * 设置用户头像和昵称
+     */
+    private void setHeaderImageAndName(){
+        PUser pUser = (PUser) CacheMemoryUtils.getInstance().get(USER_INFO);
+        if (pUser != null) {
+            Log.d("MineFragment", JSON.toJSONString(pUser));
+            if (pUser.getType() == 3) {
+                Glide.with(getActivity())
+                        .load(Constants.BASE_IMAGE_URL + pUser.getHeadPic())
+                        .into(ciUserPic);
+            } else {
+                Glide.with(getActivity())
+                        .load(pUser.getHeadPic())
+                        .into(ciUserPic);
+            }
+            tvNikeName.setText(pUser.getName());
+        } else {
+            tvNikeName.setVisibility(View.GONE);
+            liNologin.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.GONE);
         }
     }
 

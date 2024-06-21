@@ -46,7 +46,7 @@ public class DataActivity extends BaseActivity implements DataContract.View {
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 

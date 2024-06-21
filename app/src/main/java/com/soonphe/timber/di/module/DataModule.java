@@ -28,6 +28,11 @@ public class DataModule {
         return db;
     }
 
+    /**
+     * 提供SharedPreferences,SPUtils.getInstance()已经是单例模式
+     * @return
+     */
+    @Deprecated
     @Provides
     @Singleton
     SPUtils provideSharedPreferences() {

@@ -5,6 +5,7 @@ import android.view.View;
 import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.base.mvp.BasePresenter;
 import com.soonphe.timber.di.PerActivity;
+import com.soonphe.timber.pojo.vo.AdvertVo;
 
 import java.util.ArrayList;
 
@@ -44,10 +45,12 @@ public class HomePresenter extends BasePresenter<HomeContract.HomeView> implemen
     public void getHotGoods(int start) {
 //        mDisposable.add(api.getHotGoods(new PGoodsSearchVO(start,"")).subscribe(cards -> mView.showHotGoodsList(cards),
 //                throwable -> mView.onError(throwable.getMessage())));
+        mDisposable.add(api.getAdvertList(new AdvertVo()).subscribe(cards -> mView.showHotGoodsList(cards),
+                throwable -> mView.onError(throwable.getMessage())));
     }
 
     @Override
-    public void getUserInfo(View v, int userId) {
+    public void getUserInfo(int userId) {
 //        mDisposable.add(api.getUserInfo(userId).subscribe(pUser -> {
 //                    mView.getUserInfoSuccess(v,pUser);
 //                },

@@ -3,18 +3,14 @@ package com.soonphe.timber.ui.fragment.home;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
-import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationListener;
-import com.blankj.utilcode.util.CacheUtils;
+import com.blankj.utilcode.util.CacheMemoryUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -23,16 +19,15 @@ import com.soonphe.timber.R;
 import com.soonphe.timber.adapter.HomeHotAdapter;
 import com.soonphe.timber.base.BaseFragmentV4;
 import com.soonphe.timber.constants.Constants;
+import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.view.entity.MenuBarItem;
 import com.soonphe.timber.entity.PCarousel;
 import com.soonphe.timber.entity.PCategory;
-import com.soonphe.timber.entity.PGoods;
 import com.soonphe.timber.entity.PUser;
 import com.soonphe.timber.view.widget.menubar.MenuBar;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 import com.zaaach.citypicker.CityPickerActivity;
-import com.zaaach.citypicker.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +44,10 @@ import static android.app.Activity.RESULT_OK;
 import static com.soonphe.timber.constants.Constants.AMAP_LOCATION;
 
 /**
- * @Author anna
- * @Date 2017-11-21 15:33
- * @Description 首页fragment
+ * 首页fragment
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeView, SwipeRefreshLayout.OnRefreshListener{
 
@@ -75,11 +71,6 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
     @BindView(R.id.menu_bar_view)
     MenuBar menuBar;
 
-//    @BindView(R.id.viewpager)
-//    ViewPager viewpager;
-//    @BindView(R.id.points)
-//    LinearLayout points;
-
     @BindView(R.id.iv_deploy_want)
     RelativeLayout ivDeployWant;
     @BindView(R.id.iv_competitive)
@@ -96,13 +87,6 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
     private AMapLocationClient mLocationClient;
     String currentCity = "";
     String cou = "";
-
-//    /* 首页菜单 */
-//    private List<View> viewPagerList;   //GridView作为一个View对象添加到ViewPager集合中
-//    private ImageView[] ivPoints;   //小圆点图片的集合
-//    private int totalPage;  //总的页数
-//    private int mPageSize = 10;  //每页显示的最大的数量
-
     /* 收藏热门 */
     private HomeHotAdapter homeHotAdapter;
     private int start = 0;   //分页请求起始位置
@@ -112,7 +96,6 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
      * 单例创建对象
      */
     private static HomeFragment instance = new HomeFragment();
-    private HomeFragment (){}
     public static HomeFragment getInstance() {
         return instance;
     }
@@ -141,11 +124,6 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
     @Override
     public void initView(View view) {
         presenter.attachView(this);
-//        PUser pUser = (PUser) CacheUtils.getInstance().getSerializable(USER);
-        //当前登录用户存在店铺
-//        if (pUser != null && pUser.getHasStore() > 2) {
-//            tvStore.setText("我的店铺");
-//        }
         //下滑刷新
         swipeView.setOnRefreshListener(this);
         swipeView.setColorSchemeColors(getResources().getColor(R.color.swipe_color));
@@ -157,20 +135,20 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
         //开始加载的位置 默认1
 //        homeHotAdapter.setStartUpFetchPosition(5);
         homeHotAdapter.setPreLoadNumber(5);
-        // 滑动最后一个Item的时候回调onLoadMoreRequested方法
-        homeHotAdapter.setOnLoadMoreListener(() -> {
-            homeHotAdapter.isLoading();
-            rvList.postDelayed(() -> {
-                homeHotAdapter.setEnableLoadMore(false);
-                if (!isLast) {
-                    //继续加载数据
-                    presenter.getHotGoods(start);
-                } else {
-                    //数据全部加载完毕
-                    homeHotAdapter.loadMoreEnd();
-                }
-            }, 2000);
-        }, rvList);
+        // 滑动最后一个Item的时候回调onLoadMoreRequested方法（会造成卡顿）
+//        homeHotAdapter.setOnLoadMoreListener(() -> {
+//            homeHotAdapter.isLoading();
+//            rvList.postDelayed(() -> {
+//                homeHotAdapter.setEnableLoadMore(false);
+//                if (!isLast) {
+//                    //继续加载数据
+//                    presenter.getHotGoods(start);
+//                } else {
+//                    //数据全部加载完毕
+//                    homeHotAdapter.loadMoreEnd();
+//                }
+//            }, 2000);
+//        }, rvList);
 
         //adpter开启动画（ALPHAIN 渐显、SCALEIN 缩放、SLIDEIN_BOTTOM 从下到上，SLIDEIN_LEFT从左到右、SLIDEIN_RIGHT 从右到左）
         homeHotAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
@@ -197,17 +175,22 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
 //            mOperation.addParameter("id", homeHotAdapter.getItem(position).getId());
 //            mOperation.forward(GoodDetailActivity.class);
         });
-
     }
 
     @Override
     public void doBusiness(Context mContext) {
-
+        //获取缓存中的数据
+//        PUser pUser = (PUser) CacheUtils.getInstance().getSerializable(USER);
+        //当前登录用户存在店铺
+//        if (pUser != null && pUser.getHasStore() > 2) {
+//            tvStore.setText("我的店铺");
+//        }
+        //初始化定位
         initLocation();
         //从flash页面传递过来的数据
         List<PCategory> categoryMenuList = (List<PCategory>) mOperation.getListParameter("pCategoryList");
         List<PCarousel> carouselList = (List<PCarousel>) mOperation.getListParameter("pCarouselList");
-        List<PGoods> pGoodsList = (List<PGoods>) mOperation.getListParameter("pGoodsList");
+        List<TAdvert> pGoodsList = (List<TAdvert>) mOperation.getListParameter("pGoodsList");
         //如果flash页面数据加载失败，则在这里重新加载
         if (categoryMenuList != null && categoryMenuList.size() > 0) {
             showCategoryMenuList(categoryMenuList);
@@ -234,7 +217,6 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
 
     @Override
     public void showCategoryMenuList(List<PCategory> categoryList) {
-
         List<MenuBarItem> list = new ArrayList<>();
         for (int i= 0;i<20;i++){
             MenuBarItem item =  new MenuBarItem();
@@ -244,77 +226,8 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
         menuBar.setmDatas(list);
         //自定义view回调监听
         menuBar.setOnMenuItermClickListener(position -> {
-
             LogUtils.e("点击"+position);
         });
-
-        //首页滚动菜单实现
-        /* 1.使用ViewPager和GridView实现*/
-        //总的页数向上取整
-//        totalPage = (int) Math.ceil(categoryList.size() * 1.0 / mPageSize);
-//        viewPagerList = new ArrayList<View>();
-//        for (int i = 0; i < totalPage; i++) {
-//            //每个页面都是inflate出一个新实例
-//            final GridView gridView = (GridView) View.inflate(getContext(), R.layout.item_home_gridview, null);
-//            gridView.setAdapter(new GridViewAdapter(getContext(), categoryList, i, mPageSize));
-//            //添加item点击监听
-//            int finalI = i;
-//            gridView.setOnItemClickListener((arg0, arg1, position, arg3) -> {
-////                LogUtils.e("\"点击了\" + (finalI * mPageSize + position)");
-////                mOperation.addParameter("categoryId", categoryList.get(finalI * mPageSize + position).getId());
-////                mOperation.forward(GoodsActivity.class);
-//            });
-//            //每一个GridView作为一个View对象添加到ViewPager集合中
-//            viewPagerList.add(gridView);
-//        }
-//        //设置ViewPager适配器
-//        viewpager.setAdapter(new MyViewPagerAdapter(viewPagerList));
-//
-//        /* 菜单底部圆点指示器实现 */
-//        //移除子视图
-//        points.removeAllViews();
-//        //添加小圆点
-//        ivPoints = new ImageView[totalPage];
-//        for (int i = 0; i < totalPage; i++) {
-//            //循坏加入点点图片组
-//            ivPoints[i] = new ImageView(getContext());
-//            if (i == 0) {
-//                ivPoints[i].setImageResource(R.mipmap.dot_focus_gray);
-//            } else {
-//                ivPoints[i].setImageResource(R.mipmap.dot_normal_gray);
-//            }
-//            ivPoints[i].setPadding(8, 8, 8, 8);
-//
-//
-//            points.addView(ivPoints[i]);
-//        }
-//
-//        //设置ViewPager的滑动监听，主要是设置点点的背景颜色的改变
-//        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                //currentPage = position;
-//                //循环，选择页蓝，其他为灰色
-//                for (int i = 0; i < totalPage; i++) {
-//                    if (i == position) {
-//                        ivPoints[i].setImageResource(R.mipmap.dot_focus_gray);
-//                    } else {
-//                        ivPoints[i].setImageResource(R.mipmap.dot_normal_gray);
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
-
     }
 
     @Override
@@ -339,11 +252,10 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
 //            }
         });
         swipeView.setRefreshing(false);
-
     }
 
     @Override
-    public void showHotGoodsList(List<PGoods> pCard) {
+    public void showHotGoodsList(List<TAdvert> pCard) {
         if (pCard.size() == 0) {
             isLast = true;
         } else {
@@ -364,7 +276,7 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
     }
 
     @Override
-    public void getUserInfoSuccess(View view, PUser pUser) {
+    public void getUserInfoSuccess(PUser pUser) {
 //        //服务器数据与本地同步
 //        CacheUtils.getInstance().put(Constants.USER, pUser);
 //        //验证是否实名认证  0未申请 1审核中
@@ -466,7 +378,7 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
             if (data != null) {
                 String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
                 tvCity.setText("" + city);
-                CacheUtils.getInstance().put(AMAP_LOCATION,city);
+                CacheMemoryUtils.getInstance().put(AMAP_LOCATION,city);
             }
         }
     }
@@ -507,47 +419,47 @@ public class HomeFragment extends BaseFragmentV4 implements HomeContract.HomeVie
     }
 
     private void initLocation() {
-        //声明AMapLocationClient类对象
-        mLocationClient = new AMapLocationClient(this.getContext());
-        //配置定位参数
-        AMapLocationClientOption option = new AMapLocationClientOption();
-        //高精度定位模式：会同时使用网络定位和GPS定位
-        option.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-        option.setOnceLocation(true);
-        mLocationClient.setLocationOption(option);
-        //设置 定位回调监听器
-        mLocationClient.setLocationListener(new AMapLocationListener() {
-            @Override
-            public void onLocationChanged(AMapLocation aMapLocation) {
-                if (aMapLocation != null) {
-                    if (aMapLocation.getErrorCode() == 0) {
-                        /*
-                        //基础定位信息
-                         amapLocation.getCountry();//国家信息
-                         amapLocation.getProvince();//省信息
-                         amapLocation.getCity();//城市信息
-                         amapLocation.getDistrict();//城区信息
-                         amapLocation.getStreet();//街道信息
-                         amapLocation.getStreetNum();//街道门牌号信息
-                         //获取定位时间
-                         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                         Date date = new Date(amapLocation.getTime());
-                         */
-                        String city = aMapLocation.getCity();
-                        String cou = aMapLocation.getDistrict();
-                        Log.e("onLocationChanged", "city: " + city);
-                        Log.e("onLocationChanged", "district: " + cou);
-                        String location = StringUtils.extractLocation(city, cou);
-                        tvCity.setText(location);
-                        CacheUtils.getInstance().put(AMAP_LOCATION, location);
-                    } else {
-                        //定位失败
-                        currentCity = "定位失败";
-                        tvCity.setText(currentCity);
-                    }
-                }
-            }
-        });
-        mLocationClient.startLocation();
+//        //声明AMapLocationClient类对象
+//        mLocationClient = new AMapLocationClient(this.getContext());
+//        //配置定位参数
+//        AMapLocationClientOption option = new AMapLocationClientOption();
+//        //高精度定位模式：会同时使用网络定位和GPS定位
+//        option.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+//        option.setOnceLocation(true);
+//        mLocationClient.setLocationOption(option);
+//        //设置 定位回调监听器
+//        mLocationClient.setLocationListener(new AMapLocationListener() {
+//            @Override
+//            public void onLocationChanged(AMapLocation aMapLocation) {
+//                if (aMapLocation != null) {
+//                    if (aMapLocation.getErrorCode() == 0) {
+//                        /*
+//                        //基础定位信息
+//                         amapLocation.getCountry();//国家信息
+//                         amapLocation.getProvince();//省信息
+//                         amapLocation.getCity();//城市信息
+//                         amapLocation.getDistrict();//城区信息
+//                         amapLocation.getStreet();//街道信息
+//                         amapLocation.getStreetNum();//街道门牌号信息
+//                         //获取定位时间
+//                         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                         Date date = new Date(amapLocation.getTime());
+//                         */
+//                        String city = aMapLocation.getCity();
+//                        String cou = aMapLocation.getDistrict();
+//                        Log.e("onLocationChanged", "city: " + city);
+//                        Log.e("onLocationChanged", "district: " + cou);
+//                        String location = StringUtils.extractLocation(city, cou);
+//                        tvCity.setText(location);
+//                        CacheMemoryUtils.getInstance().put(AMAP_LOCATION, location);
+//                    } else {
+//                        //定位失败
+//                        currentCity = "定位失败";
+//                        tvCity.setText(currentCity);
+//                    }
+//                }
+//            }
+//        });
+//        mLocationClient.startLocation();
     }
 }

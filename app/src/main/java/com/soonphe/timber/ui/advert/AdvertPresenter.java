@@ -4,6 +4,7 @@ import com.soonphe.timber.api.AppApi;
 import com.soonphe.timber.base.mvp.BasePresenter;
 import com.soonphe.timber.components.okhttp.OkHttpHelper;
 import com.soonphe.timber.di.PerActivity;
+import com.soonphe.timber.pojo.vo.AdvertVo;
 
 import javax.inject.Inject;
 
@@ -22,7 +23,9 @@ public class AdvertPresenter extends BasePresenter<AdvertContract.View> implemen
 
     @Override
     public void getAdvertListByType(int typeid) {
-        mDisposable.add(api.getAdvertList(1000)
+        AdvertVo advertVo = new AdvertVo();
+        advertVo.setTypeId(12);
+        mDisposable.add(api.getAdvertList(advertVo)
                         .subscribe(list -> {
                             mView.getAdvertListSuccess(list);
                         }, throwable -> mView.onError(throwable.getMessage()))

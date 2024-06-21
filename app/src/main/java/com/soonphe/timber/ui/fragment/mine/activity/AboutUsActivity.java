@@ -1,4 +1,4 @@
-//package com.soonphe.timber.ui.fragment.center.activity;
+//package com.soonphe.timber-widget.ui.fragment.center.activity;
 //
 //import android.content.Context;
 //import android.os.Bundle;
@@ -20,7 +20,7 @@
 //    }
 //
 //    @Override
-//    public void initParms(Bundle parms) {
+//    public void initParams(Bundle parms) {
 //
 //    }
 //

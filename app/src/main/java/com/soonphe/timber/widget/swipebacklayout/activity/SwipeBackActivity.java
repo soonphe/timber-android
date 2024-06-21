@@ -8,7 +8,12 @@ import com.soonphe.timber.widget.swipebacklayout.Utils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
+/**
+ * 滑动侧边栏返回组件
+ *
+ * @author soonphe
+ * @since 1.0
+ */
 public class SwipeBackActivity extends AppCompatActivity implements
         SwipeBackActivityBase {
     private SwipeBackActivityHelper mHelper;

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.StrictMode;
 
 import com.blankj.utilcode.util.FileUtils;
+import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.Utils;
 import com.facebook.stetho.Stetho;
 import com.lzy.okgo.OkGo;
@@ -25,13 +26,13 @@ import org.litepal.LitePal;
 import androidx.annotation.RequiresApi;
 import androidx.multidex.BuildConfig;
 import androidx.multidex.MultiDex;
-import cn.jpush.android.api.JPushInterface;
-
+//import cn.jpush.android.api.JPushInterface;
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description Application
+ * Application
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class MyApplication extends BaseApplication {
 
@@ -67,11 +68,11 @@ public class MyApplication extends BaseApplication {
             //StrictMode严苛模式,检测:一个是线程策略，即TreadPolicy，另一个是VM策略，即VmPolicy。
             StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
             StrictMode.setVmPolicy(builder.
-                    //detectActivityLeaks().      //用户检查 Activity 的内存泄露情况
+                            //detectActivityLeaks().      //用户检查 Activity 的内存泄露情况
                             detectLeakedSqlLiteObjects().   //SQLite对象是否被正确关闭
-                    detectLeakedClosableObjects().  //用于资源没有正确关闭时提醒
-                    penaltyLog().   //当触发违规条件时，记录log
-                    //penaltyDeath(). //当触发违规条件时，直接Crash掉当前应用程序
+                            detectLeakedClosableObjects().  //用于资源没有正确关闭时提醒
+                            penaltyLog().   //当触发违规条件时，记录log
+                            //penaltyDeath(). //当触发违规条件时，直接Crash掉当前应用程序
                             build());
             //文件uri暴露
             builder.detectFileUriExposure();
@@ -94,8 +95,8 @@ public class MyApplication extends BaseApplication {
         //创建下载文件夹
         FileUtils.createOrExistsDir(Constants.DOWNLOAD_PATH);
         //极光初始化
-        JPushInterface.setDebugMode(false);    // 设置开启日志,发布时请关闭日志
-        JPushInterface.init(this);
+//        JPushInterface.setDebugMode(false);    // 设置开启日志,发布时请关闭日志
+//        JPushInterface.init(this);
         //腾讯bugfly
 //        CrashReport.initCrashReport(this, BUGLY_APPID, false);
 //        Bugly.init(this, BUGLY_APPID, true);//bugly

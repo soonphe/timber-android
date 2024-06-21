@@ -20,6 +20,7 @@ import butterknife.Unbinder;
  *
  * @version 1.0
  */
+@Deprecated
 @SuppressLint("NewApi")
 public abstract class BaseFragment extends Fragment implements IBaseFragment, IBaseConstant {
 

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.blankj.utilcode.util.BarUtils;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ZipUtils;
@@ -24,6 +23,8 @@ import androidx.annotation.RequiresApi;
 import butterknife.BindView;
 
 import static com.soonphe.timber.constants.Constants.GAME_UNZIP;
+
+import java.util.Objects;
 
 /**
  * @Author soonphe
@@ -48,16 +49,16 @@ public class GamePlayActivity extends BaseActivity implements GamePlayContract.V
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void initView(View view) {
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         //取传过来的ID
-        if (EmptyUtils.isNotEmpty(mOperation.getParameter("game"))) {
+        if (Objects.nonNull(mOperation.getParameter("game"))) {
             id = (int) mOperation.getParameter("game");
         }
         tGame = LitePal.where("tid = ?", id + "").findFirst(TGame.class);

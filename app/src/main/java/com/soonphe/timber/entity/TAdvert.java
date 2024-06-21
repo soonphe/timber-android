@@ -7,43 +7,37 @@ import org.litepal.crud.LitePalSupport;
 import java.io.Serializable;
 
 /**
- * @Author soonphe
- * @Date 2018-08-21 09:47
- * @Description 广告
+ * 广告返参对象
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class TAdvert extends LitePalSupport implements Serializable {
 
-
-    /**
-     * id : 73
-     * typeid : 1
-     * title : 锁屏广告
-     * picurl : /img/20180727/1532655515.jpg
-     * sort : 1
-     * click : 37
-     * createtime : 2018-07-06 15:06:29
-     * updatetime : 2018-08-06 17:33:43
-     * delflag : false
-     * content : <p><img src="http://192.168.1.6/upload/img/20180802/1533192019.jpg"></p>
-     * typename : 锁屏广告
-     */
     @SerializedName("id")   //真实ID
     private int tid;
-    @SerializedName("myid")
+    @SerializedName("myId")
     private int id;
-    private int typeid;
+    private int typeId;
+    private String typeName;
     private String title;
-    private String picurl;
+    private String content;
+    private String picUrl;
+    private int displayTime;
+    private int stayTime;
+
     private int sort;
     private int click;
-    private String createtime;
-    private String updatetime;
-    private boolean delflag;
-    private String content;
-    private String typename;
+    private String startTime;
+    private String endTime;
+    private String createTime;
+    private String updateTime;
+    private int status;
+    private int delFlag;
 
     private String downloadPic; //图片下载地址
     private String downloadContent; //富文本下载地址
+
 
     public int getTid() {
         return tid;
@@ -51,22 +45,6 @@ public class TAdvert extends LitePalSupport implements Serializable {
 
     public void setTid(int tid) {
         this.tid = tid;
-    }
-
-    public String getDownloadContent() {
-        return downloadContent;
-    }
-
-    public void setDownloadContent(String downloadContent) {
-        this.downloadContent = downloadContent;
-    }
-
-    public String getDownloadPic() {
-        return downloadPic;
-    }
-
-    public void setDownloadPic(String downloadPic) {
-        this.downloadPic = downloadPic;
     }
 
     public int getId() {
@@ -77,12 +55,20 @@ public class TAdvert extends LitePalSupport implements Serializable {
         this.id = id;
     }
 
-    public int getTypeid() {
-        return typeid;
+    public int getTypeId() {
+        return typeId;
     }
 
-    public void setTypeid(int typeid) {
-        this.typeid = typeid;
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
     public String getTitle() {
@@ -93,12 +79,36 @@ public class TAdvert extends LitePalSupport implements Serializable {
         this.title = title;
     }
 
-    public String getPicurl() {
-        return picurl;
+    public String getContent() {
+        return content;
     }
 
-    public void setPicurl(String picurl) {
-        this.picurl = picurl;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public int getDisplayTime() {
+        return displayTime;
+    }
+
+    public void setDisplayTime(int displayTime) {
+        this.displayTime = displayTime;
+    }
+
+    public int getStayTime() {
+        return stayTime;
+    }
+
+    public void setStayTime(int stayTime) {
+        this.stayTime = stayTime;
     }
 
     public int getSort() {
@@ -117,43 +127,67 @@ public class TAdvert extends LitePalSupport implements Serializable {
         this.click = click;
     }
 
-    public String getCreatetime() {
-        return createtime;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setCreatetime(String createtime) {
-        this.createtime = createtime;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getUpdatetime() {
-        return updatetime;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setUpdatetime(String updatetime) {
-        this.updatetime = updatetime;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public boolean isDelflag() {
-        return delflag;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setDelflag(boolean delflag) {
-        this.delflag = delflag;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public String getContent() {
-        return content;
+    public String getUpdateTime() {
+        return updateTime;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public String getTypename() {
-        return typename;
+    public int getStatus() {
+        return status;
     }
 
-    public void setTypename(String typename) {
-        this.typename = typename;
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(int delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getDownloadPic() {
+        return downloadPic;
+    }
+
+    public void setDownloadPic(String downloadPic) {
+        this.downloadPic = downloadPic;
+    }
+
+    public String getDownloadContent() {
+        return downloadContent;
+    }
+
+    public void setDownloadContent(String downloadContent) {
+        this.downloadContent = downloadContent;
     }
 }

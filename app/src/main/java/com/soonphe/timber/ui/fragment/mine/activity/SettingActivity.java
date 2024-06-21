@@ -1,4 +1,4 @@
-//package com.soonphe.timber.ui.fragment.center.activity;
+//package com.soonphe.timber-widget.ui.fragment.center.activity;
 //
 //import android.content.Context;
 //import android.os.Bundle;
@@ -10,9 +10,7 @@
 //
 //import com.blankj.utilcode.util.SPUtils;
 //import com.blankj.utilcode.util.ToastUtils;
-//import com.connxun.ltcx.R;
-//import com.connxun.ltcx.constants.Constants;
-//import com.connxun.ltcx.ui.mvp.BaseSwipeBackActivity;
+//import com.soonphe.timber.base.BaseSwipeBackActivity;
 //
 //import java.util.concurrent.TimeUnit;
 //
@@ -46,7 +44,7 @@
 //    }
 //
 //    @Override
-//    public void initParms(Bundle parms) {
+//    public void initParams(Bundle parms) {
 //
 //    }
 //

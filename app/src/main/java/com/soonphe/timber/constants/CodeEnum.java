@@ -2,9 +2,10 @@ package com.soonphe.timber.constants;
 
 
 /**
- * @Author soonphe
- * @Date 2018-08-21 09:41
- * @Description 状态码常量
+ * 状态码常量
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public enum CodeEnum {
 

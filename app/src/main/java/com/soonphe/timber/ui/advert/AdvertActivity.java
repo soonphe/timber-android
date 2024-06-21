@@ -44,7 +44,7 @@ public class AdvertActivity extends BaseActivity implements AdvertContract.View 
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 

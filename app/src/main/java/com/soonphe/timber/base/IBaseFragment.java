@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
- * @Author soonphe
- * @Date 2017-12-01 15:13
- * @Description IBaseFragment
+ * IBaseFragment
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public interface IBaseFragment extends IBaseConstant {
 

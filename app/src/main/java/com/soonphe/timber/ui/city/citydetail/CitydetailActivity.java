@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.blankj.utilcode.util.BarUtils;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -26,6 +25,7 @@ import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -83,18 +83,18 @@ public class CitydetailActivity extends BaseActivity implements CitydetailContra
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
 
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         presenter.attachView(this);
 
         //取传过来的分类ID
-        if (EmptyUtils.isNotEmpty(mOperation.getParameter("city"))) {
+        if (Objects.nonNull(mOperation.getParameter("city"))) {
             id = (int) mOperation.getParameter("city");
         }
         LogUtils.e("接受传过来的来城市ID:" + id);

@@ -11,7 +11,7 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.soonphe.timber.R;
 import com.soonphe.timber.constants.Constants;
-import com.soonphe.timber.constants.enums.DownloadEventEnum;
+import com.soonphe.timber.constants.DownloadEventEnum;
 import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.entity.TDataVersion;
 import com.soonphe.timber.base.BaseFragmentV4;

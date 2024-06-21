@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.blankj.utilcode.util.BarUtils;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.just.library.AgentWeb;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
@@ -15,6 +14,8 @@ import com.soonphe.timber.entity.TCityArticle;
 import com.soonphe.timber.view.widget.titlebar.AppTitle;
 
 import org.litepal.LitePal;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 
@@ -51,15 +52,15 @@ public class CityArticleActivity extends BaseActivity implements CityArticleCont
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
     @Override
     public void initView(View view) {
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
         //取传过来的分类ID
-        if (EmptyUtils.isNotEmpty(mOperation.getParameter("cityarticle"))) {
+        if (Objects.nonNull(mOperation.getParameter("cityarticle"))) {
             id = (int) mOperation.getParameter("cityarticle");
         }
         tGame = LitePal.where("tid = ?", id + "").findFirst(TCityArticle.class);

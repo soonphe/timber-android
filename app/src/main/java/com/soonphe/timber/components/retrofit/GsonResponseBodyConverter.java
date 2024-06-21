@@ -1,21 +1,8 @@
-/*
- * Copyright (C) 2015 Square, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.soonphe.timber.components.retrofit;
 
-import com.blankj.utilcode.util.LogUtils;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.blankj.utilcode.util.StringUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -43,7 +30,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
         try {
             String body = value.string();
             JSONObject json = new JSONObject(body);
-            String resultCode = json.optString("resultCode");
+            String resultCode = json.optString("code");
             if (CodeEnum.SUCCESS.getCode().equals(resultCode)) {
                 Object data = json.opt("data");
                 if (data == null || data.toString().equals("null")) {
@@ -51,12 +38,12 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
                 }
                 return (T)adapter.fromJson(data.toString());
             } else {
+                Log.e("gsonConverter","resultCode not equals 200,msg-" + json.toString());
                 String msg = json.optString("message", "");
-                LogUtils.e("resultCode not equals 200,msg-" + msg);
                 throw new RuntimeException(msg);
             }
         } catch (Exception e) {
-            LogUtils.e("-" + e.getMessage());
+            Log.e("gsonConverter","Exception,msg-" + e.getMessage());
             throw new RuntimeException(e.getMessage());
         } finally {
             value.close();
@@ -77,7 +64,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
             new JsonParser().parse(json);
             return true;
         } catch (JsonParseException e) {
-            LogUtils.e("bad json: " + json);
+            Log.e("gsonConverter","bad json,msg-" + e.getMessage());
             return false;
         }
     }

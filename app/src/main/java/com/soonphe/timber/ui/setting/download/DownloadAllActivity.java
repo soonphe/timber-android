@@ -16,7 +16,7 @@ import com.lzy.okserver.task.XExecutor;
 import com.soonphe.timber.R;
 import com.soonphe.timber.base.BaseActivity;
 import com.soonphe.timber.constants.Constants;
-import com.soonphe.timber.constants.enums.DownloadEventEnum;
+import com.soonphe.timber.constants.DownloadEventEnum;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -43,7 +43,7 @@ public class DownloadAllActivity extends BaseActivity implements XExecutor.OnAll
     }
 
     @Override
-    public void initParms(Bundle parms) {
+    public void initParams(Bundle parms) {
 
     }
 
@@ -55,14 +55,14 @@ public class DownloadAllActivity extends BaseActivity implements XExecutor.OnAll
 
     @Override
     public void initView(View view) {
-        BarUtils.setStatusBarAlpha(this, 0);
+        BarUtils.setStatusBarColor(this, 0);
 
     }
 
     @Override
     public void doBusiness(Context mContext) {
         okDownload = OkDownload.getInstance();
-        okDownload.setFolder(Constants.DOWNLOAD_PATH2); //设置全局下载目录
+        okDownload.setFolder(Constants.DOWNLOAD_ExternalStorage_PATH); //设置全局下载目录
         okDownload.getThreadPool().setCorePoolSize(2);  //设置同时下载数据
         okDownload.addOnAllTaskEndListener(this);   //设置所有任务监听
 
