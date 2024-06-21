@@ -2,19 +2,26 @@
 
 ## 项目介绍（Project Introduction）
 
-项目取名timber——`木材`，象征人类从刀耕火种逐渐进化的源头。
+项目取名timber——`木材`，寓意人类从刀耕火种逐渐进化的源头，星星之火，可以燎原，愿这个项目也可以成为开发者入门的源头。
 
-项目所有技术文档都在 [0-1Learning](http://github.com/soonphe/0-1Learning) 中有完整介绍。
+这是一个实现`0-1Learning`这个项目所有的知识点的实现项目，包括的Java backend(后端)，web frontend(前端)，Android App，ios App、小程序等一整套的项目合集，可以让你一次性接触到任何一端的项目开发流程是怎么样的（yes,so cool）
+
+你可以选择从`0-1`实现任何一端开始学习项目开发，也可以先写好后端服务及接口、再写前端、和App等项目。
+
+任何一端的项目都可以拷贝到本地直接运行，构建你自己的本地服务。
+
+如果想搞懂更多的项目知识体系，更多项目所有技术文档都在 [0-1Learning](http://github.com/soonphe/0-1Learning) 中有完整介绍，欢迎前往阅读。
 
 ### 设备支持（Equipment Support）
 
-设备支持：web管理后台、android（平板和phone）、ios、小程序
+设备支持：`java`,`web`、`android`、`ios`、`小程序`
 
-- server端：[timber](http://github.com/soonphe/timber)
-- web端：[timber-web](http://github.com/soonphe/timber-web)
-- android端：[timber-android](http://github.com/soonphe/timber-android)
-- ios端：[timber-ios](http://github.com/soonphe/timber-ios)
-- 小程序端：[timber-applet](http://github.com/soonphe/timber-applet)
+### 项目地址（Project Address）
+- java backend：[timber-web](http://github.com/soonphe/timber)
+- web frontend：[timber-web](http://github.com/soonphe/timber-web)
+- android APP：[timber-android](http://github.com/soonphe/timber-android)
+- ios App：[timber-ios](http://github.com/soonphe/timber-ios)
+- 小程序：[timber-applets](http://github.com/soonphe/timber-applets)
 
 ### 业务支持（Business Support）
 
@@ -125,7 +132,7 @@ timber-android
 + 热修复+更新：bugly + tinker
 + JDK：1.8 + retrolambda表达式
 
-#### 2.控件库
+#### 2.控件库（Widget Library）
 + 图片加载：Glide + 头像circleimageview
 + 图片选择：知乎matisse
 + 控件徽章：BadgeView
@@ -136,7 +143,7 @@ timber-android
 + 菜单列表：FlycoTabLayout_Lib + VerticalTabLayout
 + 轮播图：banner
 
-#### 3.工具库
+#### 3.工具库（Tools Library）
 + 上传下载：okgo + okserver
 + 图片压缩：Luban
 + 上拉刷新，下拉加载更多：SmartRefreshLayout
@@ -153,7 +160,7 @@ timber-android
 + 一键换肤
 + 极光推送
 
-### 开发进度
+### 工作进度（Work Progress）
 - gradle更新（官网）（当前gradle插件4.2.0，gradle 6.7.1）
   - gradle版本对应关系：https://developer.android.google.cn/studio/releases/gradle-plugin.html#updating-plugin
   - 去除jcenter，Jfrog，使用mavenCenter依赖更新（central仓库地址：central.sonatype.com）
@@ -167,7 +174,7 @@ timber-android
     - gradle plugin更新：当前6.7.1（最新版本8.8）
     - 新增maven仓库地址：maven { url "https://s01.oss.sonatype.org/content/groups/public" }
 
-- 全面使用androidX✔️
+- 全面使用androidX + jetpack✔️
   - androidX是针对android support的一次更新
   * 第一，包名。之前Android Support Library中的API，它们的包名都是在android.support.下面的，而AndroidX库中所有API的包名都变成了在androidx.下面。
   * 第二，命名规则。吸取了之前命名规则的弊端，AndroidX所有库的命名规则里都不会再包含具体操作系统API的版本号了。比如，像appcompat-v7库，在AndroidX中就变成了appcompat库。
@@ -287,6 +294,15 @@ java.lang.UnsupportedOperationException: GpsStatus APIs not supported, please us
 
 **自定义menu加载问题**
 java.lang.IllegalArgumentException: You cannot start a load for a destroyed
+
+
+## 公众号
+
+`0-1Learning`项目全套学习教程连载中，关注公众号「**罗晓胜**」第一时间获取。
+
+加微信群交流，公众号后台回复「**加群**」即可。
+
+![公众号图片](static/common/luoxiaosheng_wechat_common.jpg)
 
 
 
