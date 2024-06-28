@@ -1,12 +1,20 @@
 package com.soonphe.timber.ui.splash;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.alibaba.fastjson.JSON;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.LogUtils;
@@ -24,6 +32,8 @@ import com.soonphe.timber.ui.data.DataPresenter;
 import com.soonphe.timber.ui.main.MainActivity;
 import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.entity.TStats;
+import com.soonphe.timber.utils.MyLog;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.litepal.LitePal;
 
@@ -40,6 +50,10 @@ import static com.soonphe.timber.constants.Constants.BASE_IMAGE_URL;
 import static com.soonphe.timber.constants.Constants.IS_MOBILE;
 import static com.soonphe.timber.constants.Constants.NETWORK_AVAILABLE;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 /**
  * flash闪屏页
  *
@@ -47,6 +61,18 @@ import static com.soonphe.timber.constants.Constants.NETWORK_AVAILABLE;
  * @since 1.0
  */
 public class SplashActivity extends BaseActivity implements AdvertContract.View, DataContract.View {
+
+    /**
+     * 权限列表：定位，存储，网络，设备信息，相机
+     */
+    protected static final String[] NEEDS_PERMISSIONS = new String[]{
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.INTERNET,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.CAMERA};
+    private static final int ACTION_REQUEST_PERMISSIONS = 0x001;
 
     @Inject
     AdvertPresenter advertPresenter;
@@ -99,8 +125,93 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
 
     @Override
     public void doBusiness(Context mContext) {
+        MyLog.d("测试Kotlin打印日志key","测试打印日志Value");
+        MyLog.defLogFunction("测试Kotlin自定义system打印日志key","测试自定义system打印日志Value");
+        //权限检查
+        checkPermissions();
         //获取flash广告
         advertPresenter.getAdvertListByType(12);
+    }
+
+    /**
+     * 权限检查+授权
+     */
+    private void checkPermissions() {
+        if (!checkPermissions(NEEDS_PERMISSIONS)) {
+            //申请权限
+            ActivityCompat.requestPermissions(this, NEEDS_PERMISSIONS, ACTION_REQUEST_PERMISSIONS);
+            return;
+        }
+        Log.d(TAG,"===权限检查+授权已完成===");
+    }
+
+    /**
+     * 权限检查
+     *
+     * @param neededPermissions 需要的权限
+     * @return 是否全部被允许
+     */
+    protected boolean checkPermissions(String[] neededPermissions) {
+        if (neededPermissions == null || neededPermissions.length == 0) {
+            Log.d(TAG, "===权限检查是否全部被允许==="+true);
+            return true;
+        }
+        boolean allGranted = true;
+        for (String neededPermission : neededPermissions) {
+            allGranted &= ContextCompat.checkSelfPermission(this, neededPermission) == PackageManager.PERMISSION_GRANTED;
+        }
+        Log.d(TAG,"===权限检查是否全部被允许==="+allGranted+"");
+        return allGranted;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        boolean isAllGranted = true;
+        for (int grantResult : grantResults) {
+            isAllGranted &= (grantResult == PackageManager.PERMISSION_GRANTED);
+        }
+        if (requestCode == ACTION_REQUEST_PERMISSIONS) {
+            if (isAllGranted) {
+                Log.d(TAG, "权限检查全部被允许");
+            } else {
+                //手动去打开app权限提示
+                Log.d(TAG, "权限检查存在未授予权限，需要去跳转设置");
+                openAppDetails();
+            }
+        }
+    }
+
+
+    /**
+     * 打开 APP 的详情设置
+     */
+    protected void openAppDetails() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("拍照“设备信息” 和 “外部存储器权限”，请到 “应用信息 -> 权限” 中授予！");
+        builder.setPositiveButton("去手动授权", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                openSettingActivity();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        builder.show();
+    }
+
+    /**
+     * 打开设置页面
+     */
+    protected void openSettingActivity() {
+        Intent intent = new Intent();
+        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+        intent.setData(Uri.parse("package:" + getPackageName()));
+        startActivityForResult(intent, 100);
     }
 
     @Override

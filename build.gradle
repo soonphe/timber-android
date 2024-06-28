@@ -3,38 +3,50 @@ apply from: 'config.gradle'
 //gradle脚本执行所需依赖，分别是对应的maven库和插件
 buildscript {
     repositories {
-        google()
-        jcenter{url "http://jcenter.bintray.com/"}
-//        maven {
-//            name 'Google'
-//            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
-//        }
+        //镜像仓库
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+
+        mavenLocal()
         mavenCentral()
-        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        google()
+        maven { url "https://maven.google.com" }
         maven { url 'https://jitpack.io' }
+        //原仓库
+//        gradlePluginPortal()
+//        mavenCentral()
     }
     dependencies {
         //gradle插件
 //        classpath 'com.android.tools.build:gradle:3.5.3'
-        classpath 'com.android.tools.build:gradle:4.2.0'
+//        classpath 'com.android.tools.build:gradle:4.2.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
 //        classpath 'com.android.tools.build:gradle:8.1.0'
-        //bintray插件
-//        classpath 'com.novoda:bintray-release:0.7.0'
+        //kotlin插件
+//        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.0'
     }
 }
 
 //项目本身需要的依赖，比如项目所需的maven
 allprojects {
     repositories {
-        google()
-        jcenter()
-//        maven {
-//            name 'Google'
-//            url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
-//        }
+        //镜像仓库
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+
+        mavenLocal()
         mavenCentral()
-        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        google()
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
+        //原仓库
+//        gradlePluginPortal()
+//        mavenCentral()
     }
     buildDir = new File(rootDir, ".gradle-build/${path.replaceAll(':', '/')}")
 }

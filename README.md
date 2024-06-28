@@ -181,8 +181,7 @@ timber-android
 - 项目极简化拆分，基础代码更新
   - baseApplication重写✔️
   - MyAppliation重写
-    - 去除推送、bugly、tinker等配置✔️
-    - okgo下载✔️
+    - 去除推送、bugly、tinker、okgo等配置✔️
   - baseActivity重写✔️
   - BaseFragment重写✔️
   - dagger 依赖注入重写✔️
@@ -192,6 +191,7 @@ timber-android
     - okhttp，retrofit更新✔️
     - API参数变更✔️
     - json解析
+  - 动态权限请求✔️
 
 - UI重写
   - unlock页，使用widget✔️
@@ -302,7 +302,7 @@ java.lang.IllegalArgumentException: You cannot start a load for a destroyed
 
 加微信群交流，公众号后台回复「**加群**」即可。
 
-![公众号图片](static/common/luoxiaosheng_wechat_common.jpg)
+![公众号图片](document/static/common/luoxiaosheng_wechat_common.jpg)
 
 
 

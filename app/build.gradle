@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
@@ -70,10 +72,18 @@ android {
         exclude 'main/AndroidManifest.xml'
         exclude 'main/res/values/strings.xml'
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    //kotlin
+//    implementation 'androidx.core:core-ktx:1.10.1'
+//    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.0'
     //测试包
     testImplementation externalJunit
     androidTestImplementation externalJunitExt
@@ -148,6 +158,7 @@ dependencies {
     implementation externalPhotoView
     implementation externalTxtReader
     implementation externalSwitchButton
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
     implementation project(':timber-widget') // 添加依赖模块
 }
