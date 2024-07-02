@@ -9,18 +9,18 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp">
 
-        <com.ywb.tuyue.widget.AppTitle
+        <com.soonphe.timber.view.widget.titlebar.AppTitle
             style="@style/title_style"
+            app:showBack="true"
             app:canFinish="true"
             app:centreText="下载管理"
-            app:showBack="true"/>
-    </android.support.design.widget.AppBarLayout>
+            app:centreTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
 
 
     <LinearLayout
@@ -29,7 +29,7 @@
         android:orientation="vertical"
         android:weightSum="10">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"

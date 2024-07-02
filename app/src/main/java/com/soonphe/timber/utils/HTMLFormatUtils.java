@@ -15,19 +15,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Description: html模板类
- * Created by wcystart on 2018/6/29.
+ * html模板解析工具类
+ *
+ * @author soonphe
+ * @since 1.0
  */
-
 public class HTMLFormatUtils {
     public static String getNewContent(String htmltext) {
 
         Document doc = Jsoup.parse(htmltext);
         Elements elements = doc.getElementsByTag("img");
         for (Element element : elements) {
+            //调整元素大小
             element.attr("width", "100%").attr("height", "auto");
+            //attr("-ms-interpolation-mode", "bicubic")
         }
-//attr("-ms-interpolation-mode", "bicubic")
         return doc.toString();
     }
 

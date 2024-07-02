@@ -248,4 +248,15 @@ public class CustomerUnlockView extends View {
         canvas.drawBitmap(leftBitmap, leftX, leftY, paint);
 
     }
+
+    /**
+     * 滑动解锁按钮的点击事件的回调监听
+     *
+     * @author soonphe
+     * @since 1.0
+     */
+    public interface OnLockListener {
+        void onLockListener(boolean isLocked);
+    }
+
 }

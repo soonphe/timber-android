@@ -1,7 +1,6 @@
 package com.soonphe.timber.api;
 
 
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.soonphe.timber.constants.Constants;
 import com.soonphe.timber.entity.PUser;
 import com.soonphe.timber.pojo.dto.TStatsDto;
@@ -28,12 +27,17 @@ import com.soonphe.timber.pojo.vo.AdvertVo;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableTransformer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+//import io.reactivex.Observable;
+//import io.reactivex.ObservableTransformer;
+//import io.reactivex.android.schedulers.AndroidSchedulers;
+//import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableTransformer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -59,7 +63,8 @@ public class AppApi implements AppApiService {
                 new Retrofit.Builder()
                         .client(mOkHttpClient)
                         .baseUrl(Constants.BASE_API_URL)
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                         .addConverterFactory(com.soonphe.timber.components.retrofit.GsonConverterFactory.create())
                         .build();
         service = retrofit.create(AppApiService.class);
@@ -75,7 +80,8 @@ public class AppApi implements AppApiService {
                 new Retrofit.Builder()
                         .client(okHttpClient)
                         .baseUrl(baseUrl)
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                         //这里使用的是默认json解析
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
@@ -93,7 +99,6 @@ public class AppApi implements AppApiService {
                 subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread());
     }
-
 
     @Override
     public Observable<PUser> login(String userName, String password) {

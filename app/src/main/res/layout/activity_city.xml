@@ -8,25 +8,25 @@
     android:background="@mipmap/bg"
     android:fitsSystemWindows="true">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp">
 
-        <com.ywb.tuyue.widget.AppTitle
+        <com.soonphe.timber.view.widget.titlebar.AppTitle
             style="@style/title_style"
             app:showBack="true"
             app:canFinish="true"
             app:centreText="城市"
             app:centreTextColor="@color/white" />
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/sm_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

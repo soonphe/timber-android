@@ -26,7 +26,10 @@ import java.util.Enumeration;
 import androidx.core.app.ActivityCompat;
 
 /**
- * 获取设备IEMI码
+ * 获取设备通用信息，如：设备ID，IMEI，MAC地址，IP，手机号等（注：）
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class DeviceUtils {
 

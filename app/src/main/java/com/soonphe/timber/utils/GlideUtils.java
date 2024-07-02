@@ -13,9 +13,10 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import java.io.File;
 
 /**
- * @Author anna
- * @Date 2017-12-07 11:50
- * @Description
+ * glide图片加载工具类
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class GlideUtils {
 

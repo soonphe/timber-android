@@ -12,9 +12,10 @@ import butterknife.BindView;
 
 
 /**
- * @Author soonphe
- * @Date 2018-08-28 17:12
- * @Description webview页面加载
+ * webview页面加载
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class WebviewActivity extends BaseActivity {
     @BindView(R.id.fl_web)

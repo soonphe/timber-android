@@ -8,17 +8,18 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
 
-        <com.connxun.ltcx.widget.AppTitle
+        <com.soonphe.timber.view.widget.titlebar.AppTitle
             style="@style/title_style"
             app:showBack="true"
             app:canFinish="true"
             app:centreText="注册"
             app:centreTextColor="@color/white" />
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
     <EditText

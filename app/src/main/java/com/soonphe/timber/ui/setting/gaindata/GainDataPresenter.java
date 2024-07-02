@@ -41,9 +41,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
+//import io.reactivex.Observable;
 
 import static com.soonphe.timber.constants.Constants.DOWNLOAD_ExternalStorage_PATH;
+
+import io.reactivex.rxjava3.core.Observable;
 
 @PerActivity
 public class GainDataPresenter extends BasePresenter<GainDataContract.View> implements GainDataContract.Presenter {
@@ -215,9 +217,6 @@ public class GainDataPresenter extends BasePresenter<GainDataContract.View> impl
             destFileName = ((TMovie) object).getFile_name() + "." + FileUtils.getFileExtension(downpath);
         }
         GetRequest<File> request = OkGo.<File>get(downpath + "");
-
-        //这里要判断是否存在文件，然后进行下载
-        // TODO: 2018-09-18
 
         /**
          * 判断当前是否存在该tag对应的任务

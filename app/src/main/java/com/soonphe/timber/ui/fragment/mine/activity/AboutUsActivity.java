@@ -4,8 +4,6 @@
 //import android.os.Bundle;
 //import android.view.View;
 //
-//import com.connxun.ltcx.R;
-//import com.connxun.ltcx.ui.mvp.BaseSwipeBackActivity;
 //
 ///**
 // * @Author anna

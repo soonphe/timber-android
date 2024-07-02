@@ -39,9 +39,10 @@ import butterknife.BindView;
 
 
 /**
- * @Author soonphe
- * @Date 2018-08-21 17:30
- * @Description 影视
+ * 影视
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class CinemaActivity extends BaseActivity implements CinemaContract.View, DataContract.View {
 
@@ -78,7 +79,6 @@ public class CinemaActivity extends BaseActivity implements CinemaContract.View,
     public void onError(String error) {
 
     }
-
 
     @Override
     public int bindLayout() {

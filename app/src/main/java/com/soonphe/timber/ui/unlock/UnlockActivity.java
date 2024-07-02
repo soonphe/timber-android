@@ -69,7 +69,7 @@ public class UnlockActivity extends BaseActivity implements AdvertContract.View,
         BarUtils.setStatusBarColor(this, 0);
         advertPresenter.attachView(this);
         presenter.attachView(this);
-        Glide.with(this).load(R.mipmap.unlock_bg).into(unlockBgAdvert);
+        Glide.with(this).load(R.mipmap.bg).into(unlockBgAdvert);
 
         //这里调用初始化litepal
 //        SQLiteDatabase db = LitePal.getDatabase();
@@ -91,7 +91,7 @@ public class UnlockActivity extends BaseActivity implements AdvertContract.View,
         if (list.size() > 0) {
             //这里只选取最新的1张
             GlideUtils.loadImageViewLoding(this,
-                    list.get(0).getDownloadPic(), unlockBgAdvert, R.mipmap.unlock_bg, R.mipmap.unlock_bg);
+                    list.get(0).getDownloadPic(), unlockBgAdvert, R.mipmap.bg, R.mipmap.bg);
         }
     }
 

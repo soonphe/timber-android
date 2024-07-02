@@ -33,11 +33,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.jzvd.JZMediaManager;
 import cn.jzvd.JZVideoPlayerStandard;
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -253,7 +253,7 @@ public class VideoPlayerActivity extends BaseActivity implements AdvertContract.
             this.list = list;
             //这里只选取最新的一张图片
             GlideUtils.loadImageViewLoding(this,
-                    list.get(0).getDownloadPic(), advert, R.mipmap.play_advert, R.mipmap.play_advert);
+                    list.get(0).getDownloadPic(), advert, R.mipmap.default_video, R.mipmap.default_video);
         }
     }
 }

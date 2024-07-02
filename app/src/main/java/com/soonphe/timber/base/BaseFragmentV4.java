@@ -17,7 +17,8 @@ import com.soonphe.timber.di.module.ActivityModule;
 import androidx.fragment.app.Fragment;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+//import io.reactivex.disposables.CompositeDisposable;
 
 
 /**

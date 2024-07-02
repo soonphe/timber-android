@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:windowSoftInputMode="adjustPan">
 
-    <include layout="@layout/appbar_layout" />
+    <include layout="@layout/fragment_home_appbar_layout" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_view"

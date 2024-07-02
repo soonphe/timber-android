@@ -127,25 +127,25 @@ public class NetworkFragment extends BaseFragmentV4 implements NetworkContract.V
                     if (isChecked) {
                         //动态申请权限
                         if (Build.VERSION.SDK_INT >= 23) {
-                            new RxPermissions(getActivity()).request(
-                                    Manifest.permission.ACCESS_FINE_LOCATION,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION
-                            ).subscribe(granded -> {
-                                if (granded) {
-                                    //开启wifi
-                                    NetworkUtils.setWifiEnabled(true);
-                                } else {
-                                    new MaterialDialog.Builder(getActivity())
-                                            .content("是否立即去设置权限?")
-                                            .positiveText(android.R.string.ok)
-                                            .negativeText(android.R.string.cancel)
-                                            .onPositive((dialog1, which) -> {
-                                                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);   //跳转位置服务界面
-                                                startActivity(intent);
-                                            })
-                                            .show();
-                                }
-                            });
+//                            new RxPermissions(getActivity()).request(
+//                                    Manifest.permission.ACCESS_FINE_LOCATION,
+//                                    Manifest.permission.ACCESS_COARSE_LOCATION
+//                            ).subscribe(granded -> {
+//                                if (granded) {
+//                                    //开启wifi
+//                                    NetworkUtils.setWifiEnabled(true);
+//                                } else {
+//                                    new MaterialDialog.Builder(getActivity())
+//                                            .content("是否立即去设置权限?")
+//                                            .positiveText(android.R.string.ok)
+//                                            .negativeText(android.R.string.cancel)
+//                                            .onPositive((dialog1, which) -> {
+//                                                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);   //跳转位置服务界面
+//                                                startActivity(intent);
+//                                            })
+//                                            .show();
+//                                }
+//                            });
                         }
                     } else {
                         //关闭wifi

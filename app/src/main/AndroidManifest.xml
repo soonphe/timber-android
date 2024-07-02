@@ -5,7 +5,7 @@
 
     <!-- Required -->
 <!--    <permission-->
-<!--        android:name="com.ywb.timber.permission.JPUSH_MESSAGE"-->
+<!--        android:name="com.soonphe.timber.permission.JPUSH_MESSAGE"-->
 <!--        android:protectionLevel="signature" />-->
     <uses-permission android:name="com.soonphe.timber.permission.JPUSH_MESSAGE" />
     <!-- Required -->
@@ -84,10 +84,10 @@
         <!-- Service配置 -->
         <service android:name="com.soonphe.timber.services.FloatBallService" />
 
-        <!--其他的配置项-->
+        <!--Android7.0以上 文件目录访问-->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.soonphe.timber.fileprovider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -110,13 +110,6 @@
             android:name="com.soonphe.timber.ui.unlock.UnlockActivity"
             android:exported="true"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <!-- LAUNCHER：自启动activity -->
-                <category android:name="android.intent.category.HOME" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.soonphe.timber.ui.login.LoginActivity"
@@ -126,7 +119,13 @@
             android:name="com.soonphe.timber.ui.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!-- LAUNCHER：自启动activity -->
+<!--                <category android:name="android.intent.category.HOME" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+            </intent-filter>
         </activity>
         <activity
             android:name="com.soonphe.timber.ui.main.MainActivity"

@@ -25,6 +25,7 @@ import com.soonphe.timber.entity.PUser;
 import com.soonphe.timber.services.hotspot.ServiceUtil;
 import com.soonphe.timber.ui.login.LoginActivity;
 import com.soonphe.timber.ui.setting.SettingActivity;
+import com.soonphe.timber.utils.ShowPushMessageUtils;
 
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
@@ -32,9 +33,10 @@ import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
- * @Author soonphe
- * @Date 2018-03-30 11:27
- * @Description 我的
+ * 我的
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class MineFragment extends BaseFragmentV4 {
 
@@ -167,6 +169,7 @@ public class MineFragment extends BaseFragmentV4 {
 //                mOperation.forward(RegisterActivity.class);
                 break;
             case R.id.rl_help_feedback:
+                ShowPushMessageUtils.showPushDialog(this.mContext,"测试消息MMMMMMMMMMMMM", null);
 //                mOperation.forward(HelpAndFeedbackActivity.class);
                 break;
             case R.id.rl_my_setting:

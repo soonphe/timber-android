@@ -19,6 +19,7 @@
         <attr name="showBack" format="boolean" />
         <attr name="canFinish" format="boolean" />
 
+        <attr name="showCenterButton" format="boolean" />
         <attr name="centreText" format="string" />
         <attr name="centreTextSize" format="dimension" />
         <attr name="centreTextColor" format="color" />
@@ -27,6 +28,7 @@
         <attr name="rightTextSize" format="dimension" />
         <attr name="rightTextColor" format="color" />
 
+        <attr name="showRightButton" format="boolean" />
         <attr name="button1ImgSrc" format="reference" />
         <attr name="button2ImgSrc" format="reference" />
     </declare-styleable>

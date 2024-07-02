@@ -12,26 +12,29 @@ import android.widget.ImageView;
 
 import com.soonphe.timber.R;
 
+import java.util.Objects;
+
 /**
- * Description: 展示推送消息的通用Dialog
- * Created by wcystart on 2018/8/6.
+ * 展示消息的通用Dialog工具类
+ *
+ * @author soonphe
+ * @since 1.0
  */
-
-
 public class ShowPushMessageUtils {
+
     /**
+     * 展示弹框，底部右下角弹出
+     * 需要判断当前的Activity是否处于前台  如果处于前台Activity才会展示Dialog
      *
-     * @param context  上下文
-     * @param message Dialog要展示的消息
-     * @param isForeground 当前的Activity是否处于前台  如果处于前台Activity才会展示Dialog
-     * @param isFinish //当前Activty是否被Finish掉
+     * @param context      上下文
+     * @param message      Dialog要展示的消息
+     * @param gravity      弹出方向，Gravity.BOTTOM、TOP、CENTER_VERTICAL
      */
-    public static void showPushDialog(Activity context,String message,boolean isForeground,boolean isFinish){
+    public static void showPushDialog(Activity context, String message, Integer gravity) {
         DisplayMetrics metric = new DisplayMetrics();
         context.getWindowManager().getDefaultDisplay().getMetrics(metric);
         int width = metric.widthPixels;     // 屏幕宽度（像素）
         if (null != context) {
-            System.out.println("开始展示dialog" + "///////////////////////");
             Dialog dialog = new Dialog(context, R.style.pushDialog);
             View view = LayoutInflater.from(context).inflate(R.layout.push_dialog, null, false);
             ImageView imageView = view.findViewById(R.id.push_image);
@@ -41,20 +44,19 @@ public class ShowPushMessageUtils {
             dialog.setContentView(view);
             dialog.setCanceledOnTouchOutside(false);
             dialog.setCancelable(false);
+
             Window window = dialog.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
-
             ///attributes.type = WindowManager.LayoutParams.TYPE_PHONE;   //这不是一个程序的窗口,它用来提供与用户交互的界面
-
-            window.setGravity(Gravity.BOTTOM);
             attributes.width = width - 10;
             // attributes.height = height - 300;
             window.setAttributes(attributes);
-            //Dialog调用已经销毁的activity
-            if (!isFinish && isForeground == true) { //如果Activity没有被finish掉，并且此时的Activity处于前台Activity才会展示
-                dialog.show();
+            if (Objects.nonNull(gravity)){
+                window.setGravity(gravity);
+            }else{
+                window.setGravity(Gravity.BOTTOM);
             }
-            System.out.println("dialog展示成功！！！" + "///////////////////////");
+            dialog.show();
         }
     }
 }

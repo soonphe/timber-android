@@ -6,7 +6,10 @@ import timber.log.Timber
 import java.io.IOException
 
 /**
- * 自定义日志输出类
+ * 自定义Kotlin日志输出类
+ *
+ * @author soonphe
+ * @since 1.0
  */
 object MyLog {
 
@@ -36,7 +39,7 @@ object MyLog {
     }
 
     /**
-     * TODO：暂时保留。f mean 输出日志到文件
+     * f mean 输出日志到文件
      */
     @JvmStatic
     fun f(tag: String, message: String?) {

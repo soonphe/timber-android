@@ -14,10 +14,12 @@ import java.util.zip.ZipInputStream;
 import androidx.annotation.RequiresApi;
 
 /**
- * Created by penghao on 2018/3/20.
- * description：
+ * 解压工具类
+ *
+ * @author soonphe
+ * @since 1.0
  */
-public class UnZip {
+public class UnZipUtils {
 
     private static final String TAG = "ZipUtils";
 

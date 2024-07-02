@@ -4,11 +4,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 /**
- * @Author soonphe
- * @Date 2018-01-25 13:51
- * @Descprition fragment跳转通用类
+ * fragment跳转通用类
+ *
+ * @author soonphe
+ * @since 1.0
  */
-
 public class FragmentToFragment {
 
     /**

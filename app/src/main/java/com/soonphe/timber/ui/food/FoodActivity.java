@@ -40,9 +40,10 @@ import butterknife.BindView;
 
 
 /**
- * @Author soonphe
- * @Date 2018-08-28 13:54
- * @Description 餐饮
+ * 餐饮
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class FoodActivity extends BaseActivity implements FoodContract.View, DataContract.View  {
 
@@ -117,8 +118,11 @@ public class FoodActivity extends BaseActivity implements FoodContract.View, Dat
 
         for (int i = 0; i < list.size(); i++) {
             mTabEntities.add(new TabEntity(list.get(i).getName()));
-//            mTabEntities.add(new TabEntity(mTitles[i]));
         }
+        mTabEntities.add(new TabEntity("餐饮类型1"));
+        mTabEntities.add(new TabEntity("餐饮类型2"));
+        mTabEntities.add(new TabEntity("餐饮类型3"));
+        mTabEntities.add(new TabEntity("餐饮类型4"));
         tl2.setTabData(mTabEntities);
 
         tl2.setOnTabSelectListener(new OnTabSelectListener() {

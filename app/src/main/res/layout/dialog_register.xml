@@ -188,8 +188,7 @@
                 android:layout_height="170dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="40dp"
-                android:src="@mipmap/erweima" />
+                android:layout_marginTop="40dp" />
 
 
             <TextView
@@ -200,7 +199,7 @@
                 android:layout_below="@+id/QRCode"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="微信扫码关注途悦公众号获取解锁码"
+                android:text="微信关注公众号"
                 android:textColor="@color/registGenderGray"
                 android:textSize="15sp" />
         </RelativeLayout>

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,10 +34,12 @@ import com.soonphe.timber.ui.main.MainActivity;
 import com.soonphe.timber.entity.TAdvert;
 import com.soonphe.timber.entity.TStats;
 import com.soonphe.timber.utils.MyLog;
+import com.soonphe.timber.utils.ShowPushMessageUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.litepal.LitePal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -78,7 +81,6 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
     AdvertPresenter advertPresenter;
     @Inject
     DataPresenter dataPresenter;
-
     @BindView(R.id.iv_flash)
     ImageView ivFlash;
     @BindView(R.id.splash_countdown)
@@ -130,7 +132,8 @@ public class SplashActivity extends BaseActivity implements AdvertContract.View,
         //权限检查
         checkPermissions();
         //获取flash广告
-        advertPresenter.getAdvertListByType(12);
+//        advertPresenter.getAdvertListByType(12);
+        getAdvertListSuccess(new ArrayList<>());
     }
 
     /**

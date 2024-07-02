@@ -29,7 +29,7 @@ dependencies {
     //测试包
     testImplementation externalJunit
     androidTestImplementation externalJunitExt
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation externalAndroidTestEspressoCore
     //androidx基础包
     implementation externalAndroidXAppCompatV7
     implementation externalBumptechGlide

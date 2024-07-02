@@ -111,13 +111,17 @@ dependencies {
     annotationProcessor externalGoogleDaggerCompiler
     implementation externalJakewhartonButterknife
     annotationProcessor externalJakewhartonButterknifeCompiler
-    implementation externalRxjava2
-    implementation externalRxjava2Rxandroid
+    implementation externalRxjava3
+    implementation externalRxjava3Rxandroid
     implementation externalRetrofit2
     implementation externalRetrofit2ConverterGson
-    implementation externalRetrofit2Rxjava2Adapter
+    implementation externalRetrofit2AdapterRxJava3
     implementation externalOkHttp
     implementation externalOkHttpLogging
+    implementation externalRxlifecycle
+    implementation externalRxlifecycleAndroid
+    implementation externalRxlifecyclecomponents
+
     implementation externalOkgo
     implementation externalOkserver
     implementation externalOrhanobutLogger

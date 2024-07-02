@@ -35,9 +35,10 @@ import butterknife.BindView;
 
 
 /**
- * @Author soonphe
- * @Date 2018-08-28 15:23
- * @Description 城市activity
+ * 城市activity
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class CityActivity extends BaseActivity implements CityContract.View, DataContract.View {
 

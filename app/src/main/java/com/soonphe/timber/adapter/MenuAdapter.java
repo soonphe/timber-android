@@ -9,11 +9,11 @@ import com.soonphe.timber.entity.PMenu;
 import java.util.List;
 
 /**
- * @Author soonphe
- * @Date 2017-12-25 20:23
- * @Descprition 菜单Adapter（仅文字）
+ * 设置页菜单Adapter（仅文字）
+ *
+ * @author soonphe
+ * @since 1.0
  */
-
 public class MenuAdapter extends BaseQuickAdapter<PMenu, BaseViewHolder> {
 
     /**

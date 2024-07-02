@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,6 +23,7 @@ import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.soonphe.timber.R;
+import com.soonphe.timber.adapter.ViewPager2Adapter;
 import com.soonphe.timber.base.BaseActivity;
 import com.soonphe.timber.constants.Constants;
 import com.soonphe.timber.entity.TStats;
@@ -44,8 +46,12 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
+
 import butterknife.BindView;
 
 import static com.soonphe.timber.constants.Constants.IS_MOBILE;
@@ -60,8 +66,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Inject
     MainPresenter presenter;
+//    @BindView(R.id.viewpager)
+//    MyViewPager viewpager;
     @BindView(R.id.viewpager)
-    MyViewPager viewpager;
+    ViewPager2 viewpager;
     @BindView(R.id.tl_2)
     CommonTabLayout mTabLayout_2;
 
@@ -107,7 +115,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
-        viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), fragments));
+//        viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), fragments));
+        viewpager.setAdapter(new ViewPager2Adapter(this, fragments));
         viewpager.setOffscreenPageLimit(3); //设置ViewPager的缓存界面数，每一侧的界面数(默认是缓存相邻的)
         mTabLayout_2.setTabData(mTabEntities);
         mTabLayout_2.setOnTabSelectListener(new OnTabSelectListener() {
@@ -124,22 +133,41 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 }
             }
         });
-        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
             }
 
             @Override
             public void onPageSelected(int position) {
+                super.onPageSelected(position);
                 mTabLayout_2.setCurrentTab(position);
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
+                super.onPageScrollStateChanged(state);
             }
         });
+        //设置viewpager不可滑动
+        viewpager.setUserInputEnabled(false);
+//        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                mTabLayout_2.setCurrentTab(position);
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
         viewpager.setCurrentItem(0);
     }
 
@@ -317,7 +345,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     //for receive customer msg from jpush server
 //    private MessageReceiver mMessageReceiver;
-//    public static final String MESSAGE_RECEIVED_ACTION = "com.ywb.tuyue.ui.main.MESSAGE_RECEIVED_ACTION";
+//    public static final String MESSAGE_RECEIVED_ACTION = "com.soonphe.timber.ui.main.MESSAGE_RECEIVED_ACTION";
 //    public static final String KEY_TITLE = "title";
 //    public static final String KEY_MESSAGE = "message";
 //    public static final String KEY_EXTRAS = "extras";

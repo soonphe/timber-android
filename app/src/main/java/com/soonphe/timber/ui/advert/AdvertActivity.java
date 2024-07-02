@@ -10,11 +10,11 @@ import com.soonphe.timber.base.BaseActivity;
 
 import java.util.List;
 
-
 /**
- * @Author soonphe
- * @Date 2018-08-30 10:41
- * @Description 广告activity——这里没有使用
+ * 广告activity——这里没有使用
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class AdvertActivity extends BaseActivity implements AdvertContract.View {
 

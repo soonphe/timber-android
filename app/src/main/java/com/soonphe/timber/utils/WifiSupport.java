@@ -12,10 +12,13 @@ import com.soonphe.timber.entity.WifiBean;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * wifi操作工具类
+ *
+ * @author soonphe
+ * @since 1.0
  */
-
 public class WifiSupport {
 
     private static final String TAG = "WifiSupport";

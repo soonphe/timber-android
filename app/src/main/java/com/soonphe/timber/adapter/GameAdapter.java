@@ -26,8 +26,8 @@ public class GameAdapter extends BaseQuickAdapter<TGame, BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, TGame tVideo) {
-        GlideUtils.loadImageView(mContext, tVideo.getDownloadPic(), helper.getView(R.id.movie_icon));//设置电影封面
-        helper.setText(R.id.movie_title,tVideo.getName());//设置电影名称
+        GlideUtils.loadImageView(mContext, tVideo.getDownloadPic(), helper.getView(R.id.movie_icon));
+        helper.setText(R.id.movie_title,tVideo.getName());
 
     }
 }

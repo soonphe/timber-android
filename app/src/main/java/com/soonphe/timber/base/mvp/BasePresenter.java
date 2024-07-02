@@ -1,7 +1,7 @@
 package com.soonphe.timber.base.mvp;
 
-
-import io.reactivex.disposables.CompositeDisposable;
+//import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 /**
  * BasePresenter 关联持有View对象

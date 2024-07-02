@@ -43,16 +43,17 @@ import javax.inject.Inject;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import butterknife.BindView;
 
 
 /**
- * @Author soonphe
- * @Date 2018-08-21 13:12
- * @Description 游戏列表
+ * 游戏Activity
+ *
+ * @author soonphe
+ * @since 1.0
  */
 public class GameActivity extends BaseActivity implements GameContract.View, DataContract.View {
-
 
     @Inject
     GamePresenter presenter;
@@ -63,7 +64,7 @@ public class GameActivity extends BaseActivity implements GameContract.View, Dat
     AppTitle appTitle;
     @BindView(R.id.banner_Game)
     Banner banner;
-//    @BindView(R.id.pagerTab)
+    //    @BindView(R.id.pagerTab)
 //    TabLayout pagerTab;
     @BindView(R.id.tl_2)
     CommonTabLayout tl2;
@@ -110,7 +111,6 @@ public class GameActivity extends BaseActivity implements GameContract.View, Dat
         //banner图
         banner.setImageLoader(new GlideImageLoader());
 
-
         gameAdapter = new GameAdapter(R.layout.item_game);
         rvList.setLayoutManager(new GridLayoutManager(this, 3));
         rvList.addItemDecoration(new SpaceDecoration(10));
@@ -129,7 +129,6 @@ public class GameActivity extends BaseActivity implements GameContract.View, Dat
     public class GlideImageLoader extends ImageLoader {
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
-
 //            String url = Constants.BASE_IMAGE_URL + ((PCarousel) path).getPicUrl();
             Glide.with(context).load(((TAdvert) path).getDownloadPic()).into(imageView);
         }
@@ -158,28 +157,31 @@ public class GameActivity extends BaseActivity implements GameContract.View, Dat
             mOperation.addParameter("advert", list.get(position).getId());
             mOperation.forward(AdvertContentActivity.class);
         });
-
     }
 
     @Override
     public void getTypeListSuccess(List<TGameType> list) {
         for (int i = 0; i < list.size(); i++) {
             mTabEntities.add(new TabEntity(list.get(i).getName()));
-//            mTabEntities.add(new TabEntity(mTitles[i]));
         }
+        mTabEntities.add(new TabEntity("游戏类型1"));
+        mTabEntities.add(new TabEntity("游戏类型2"));
+        mTabEntities.add(new TabEntity("游戏类型3"));
+        mTabEntities.add(new TabEntity("游戏类型4"));
         tl2.setTabData(mTabEntities);
 
         tl2.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
-                presenter.getGameList(list.get(position).getTid() );
+                presenter.getGameList(list.get(position).getTid());
             }
+
             @Override
             public void onTabReselect(int position) {
 
             }
         });
-        presenter.getGameList(  list.get(0).getTid());
+//        presenter.getGameList(  list.get(0).getTid());
     }
 
     @Override

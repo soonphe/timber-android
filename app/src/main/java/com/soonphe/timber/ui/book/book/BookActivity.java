@@ -44,6 +44,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
+/**
+ * 书吧
+ *
+ * @author soonphe
+ * @since 1.0
+ */
 public class BookActivity extends BaseActivity implements BookContract.BookView, DataContract.View {
 
     @Inject
@@ -119,6 +125,10 @@ public class BookActivity extends BaseActivity implements BookContract.BookView,
         for (int i = 0; i < list.size(); i++) {
             mTabEntities.add(new TabEntity(list.get(i).getName()));
         }
+        mTabEntities.add(new TabEntity("书吧类型1"));
+        mTabEntities.add(new TabEntity("书吧类型2"));
+        mTabEntities.add(new TabEntity("书吧类型3"));
+        mTabEntities.add(new TabEntity("书吧类型4"));
         tl2.setTabData(mTabEntities);
 
         tl2.setOnTabSelectListener(new OnTabSelectListener() {
@@ -133,7 +143,7 @@ public class BookActivity extends BaseActivity implements BookContract.BookView,
 
             }
         });
-        presenter.getBookList(list.get(0).getTid());
+//        presenter.getBookList(list.get(0).getTid());
     }
 
     @Override

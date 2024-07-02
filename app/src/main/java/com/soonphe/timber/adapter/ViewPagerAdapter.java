@@ -8,10 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author soonphe
- * @Date 2018-08-21 19:33
- * @Description viewPager Fragement适配器
+ * viewPager Fragement适配器
+ *
+ * @author soonphe
+ * @since 1.0
  */
+@Deprecated
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private List<Fragment> mFragmentList      = new ArrayList<>();
     private List<String>         mFragmentTitleList = new ArrayList<String>();
