@@ -311,8 +311,10 @@ java.lang.UnsupportedOperationException: GpsStatus APIs not supported, please us
 java.lang.IllegalArgumentException: You cannot start a load for a destroyed
 
 **rxlife**
-RxLife 是由 Liu Jingxing 创建的一个开源项目，它的核心理念是为开发者提供一种更简单的方法来管理和控制RxJava流在Android组件（如Activity或Fragment）生命周期中的行为。通过使用RxLife，你可以避免资源泄漏，同时确保你的代码在正确的时间执行和停止执行。
+提供一种更简单的方法来管理和控制RxJava流在Android组件（如Activity或Fragment）生命周期中的行为。通过使用RxLife，你可以避免资源泄漏，同时确保你的代码在正确的时间执行和停止执行。
 该项目的核心是LifecycleTransformer接口，它扩展了RxJava的Transformer类，让开发者能够轻松地将生命周期事件映射到Observable的操作上。例如，你可以创建一个只在Activity处于可见状态时触发的Observable，或者一个在Activity销毁时自动取消的Observable。
+```Disposable disposable = Observable.create(...).compose(LifecycleTransformer.bindToLifecycle(this)).subscribe(...);```
+这里的this通常是指Activity或Fragment实例，bindToLifecycle()方法会根据当前组件的生命周期来自动管理订阅。
 
 **FileProvider**
 从 Android 7.0 开始，应用私有目录的访问权限被做限制。具体表现为，开发人员不能够再简单地通过 file:// URI 访问其他应用的私有目录文件或者让其他应用访问自己的私有目录文件
