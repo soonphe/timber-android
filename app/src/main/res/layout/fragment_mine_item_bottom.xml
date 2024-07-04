@@ -232,9 +232,9 @@
 
     </LinearLayout>
 
-    <Space
+    <androidx.legacy.widget.Space
         android:layout_width="match_parent"
-        android:layout_height="15dp"></Space>
+        android:layout_height="15dp"></androidx.legacy.widget.Space>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -312,9 +312,9 @@
 
     </LinearLayout>
 
-    <Space
+    <androidx.legacy.widget.Space
         android:layout_width="match_parent"
-        android:layout_height="15dp"></Space>
+        android:layout_height="15dp"></androidx.legacy.widget.Space>
 
     <LinearLayout
         android:id="@+id/logout"
@@ -329,9 +329,9 @@
             android:textSize="15sp" />
     </LinearLayout>
 
-    <Space
+    <androidx.legacy.widget.Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"></Space>
+        android:layout_height="20dp"></androidx.legacy.widget.Space>
 
 
 

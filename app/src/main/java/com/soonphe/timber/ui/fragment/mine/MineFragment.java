@@ -23,6 +23,7 @@ import com.soonphe.timber.base.BaseFragmentV4;
 import com.soonphe.timber.constants.Constants;
 import com.soonphe.timber.entity.PUser;
 import com.soonphe.timber.services.hotspot.ServiceUtil;
+import com.soonphe.timber.ui.about.AboutActivity;
 import com.soonphe.timber.ui.login.LoginActivity;
 import com.soonphe.timber.ui.setting.SettingActivity;
 import com.soonphe.timber.utils.ShowPushMessageUtils;
@@ -180,7 +181,7 @@ public class MineFragment extends BaseFragmentV4 {
                 mOperation.forward(SettingActivity.class);
                 break;
             case R.id.rl_about_us:
-//                mOperation.forward(AboutUsActivity.class);
+                mOperation.forward(AboutActivity.class);
                 break;
         }
     }

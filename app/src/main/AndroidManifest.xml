@@ -139,6 +139,8 @@
             android:name="com.soonphe.timber.ui.advert.advertise.AdvertContentActivity"
             android:screenOrientation="landscape" />
         <activity
+            android:name="com.soonphe.timber.ui.about.AboutActivity" />
+        <activity
             android:name="com.soonphe.timber.ui.setting.SettingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape"

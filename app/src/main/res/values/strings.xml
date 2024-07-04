@@ -9,7 +9,7 @@
     <string name="grant_permission">请先授予应用相关权限</string>
     <string name="login_account_hint">请输入账号</string>
     <string name="login_password_hint">请输入密码</string>
-    <string name="copyright">Copyright © 2018 XX</string>
+    <string name="copyright">Copyright © 2018 soonphe</string>
     <string name="title_detail">详情</string>
     <string name="mobile">手机号</string>
     <string name="password_text">密码</string>
@@ -77,5 +77,9 @@
     <string name="help_feedback">帮助与反馈</string>
     <string name="setting">设置</string>
     <string name="about_us">关于我们</string>
+
+    <string name="github">GitHub</string>
+    <string name="developer">开发者</string>
+    <string name="contact_information">联系方式</string>
 
 </resources>

@@ -63,6 +63,9 @@
 ### 系统技术栈（System Technology Stack）
 ![系统技术栈](document/static/architecture/system_technology_stack.png "系统技术栈")
 
+### 项目展示（Project Show）
+![Copyright](document/static/project/timber_android_copyright.png "Copyright")
+
 ### 项目结构（Project Structure）
 ```
 timber-android
@@ -355,16 +358,36 @@ Environment.getExternalStorageDirectory()；/storage/emulate/0
 2.第二步 ：在res/xml 目录下添加共享目录标识文件file_path
 
 
-## 公众号
+## 在哪里可以免费看我的文章
 
-`0-1Learning`项目全套学习教程连载中，关注公众号「**罗晓胜**」第一时间获取。
+### github
+>  [0-1Learning](https://github.com/soonphe/0-1Learning "")
+>
+
+### 公众号
+
+公众号已发布 `0-1Learning` 部分文章，另有更多好文，等待你的探索，关注公众号「**罗晓胜**」第一时间获取。
 
 加微信群交流，公众号后台回复「**加群**」即可。
 
 ![公众号图片](document/static/common/luoxiaosheng_wechat_common.jpg)
 
+### 在哪里可以免费看我的视频
 
+文字终究表达有限，视频效果会比文字好很多。
 
+**视频内容想到哪就拍到哪了，什么好玩就拍什么了，也不想给自己规定个什么内容了，以后的事，谁说得准呢！**
 
+尽量会在全平台投稿，Youtube、tiktok、B站等，关注「**罗晓胜**」第一时间获取。
 
+如有任何疑问给我留言吧，能力范围内都会回复！记得互动支持喔！
 
+> `注意，作者不会主动联系任何人`，**任何冒充作者主动联系你都是骗子！！！**
+>
+> `注意，涉及金钱交易的，请核实再核实后操作，以免上当受骗`
+>
+> `注意，免责申明 1、本软件产品为免费软件仅供学习交流使用，用户可以非商业性地下载、安装、复制和散发本软件产品。 2、本软件不得用于从事任何违反国家法律的事情，使用者所做任何事情也与作者无关，对于用户擅自使用本软件从事违法活动不承担任何责任`
+
+## 许可证
+
+Copyright (c) 2018 soonphe
